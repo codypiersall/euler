@@ -815,7 +815,7 @@ def prob34(max_num = 1854721):
     print('The factorions are {0}\nTheir sum is {1}'.format(
            factorions, sum(factorions)))
 
-def prob35(lessthan=1000000):
+def prob35(maxnum=1000000):
     '''
     The number, 197, is called a circular prime because all 
     rotations of the digits: 197, 971, and 719, are themselves prime.
@@ -831,10 +831,14 @@ def prob35(lessthan=1000000):
     primes_file.close()
     
     circular_primes = set()
-    for number in range(lessthan):
+    
+    for number in range(maxnum):
+        
         if number in primes:
             rotations = circularize(number)
+            
             if all((i in primes) for i in rotations):
+    
                 for rotation in rotations:
                     circular_primes.add(rotation)
             
@@ -927,6 +931,57 @@ def prob37():
     NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
     '''
     
+    # pull the primes from the file.
+    primes_file = shelve.open("primes_less_than1000000")
+    primes = primes_file["primes_less_than1000000"]
+    primes_file.close()
+    
+    # don't look for numbers that are too small.
+    number = 11
+    numfound = 0
+    
+    truncatable_primes = []
+    
+    while numfound < 11 and number < 1000000:
+        
+        # don't check non-prime numbers
+        if number in primes:
+            truncations = truncate(number)
+            
+            if all(num in primes for num in truncations):
+                truncatable_primes.append(number)
+                numfound += 1
+                
+        number += 1
+    
+    total = sum(truncatable_primes)
+    
+    print('The truncatable primes are {0}.'.format(truncatable_primes))
+    print('Their total is {0}'.format(total))
+    
+    
+def truncate(number):
+    '''
+    returns a list of truncated numbers, based on the number given.
+    It truncates from left to right, then from right to left.
+    for instance, if number is 3797, it returns
+    [3797, 797, 97, 7, 379, 37, 3], although not in that order.
+    '''
+    
+    number = str(number)
+    num_length = len(number)
+    truncated_numbers = [int(number)]
+    
+    for position in range(1, num_length):
+        
+        # take away the right digits
+        truncated_numbers.append(int(number[0: num_length - position]))
+        
+        # take away the left digits
+        truncated_numbers.append(int(number[position:num_length]))
+    
+    return truncated_numbers
+    
 def prob38():
     '''
     Take the number 192 and multiply it by each of 1, 2, and 3:
@@ -945,7 +1000,6 @@ def prob38():
     formed as the concatenated product of an integer with 
     (1,2, ... , n) where n = 1?
     '''
-    
 
 def prob39():
     '''
@@ -971,11 +1025,16 @@ def prob40():
     
     d1  d10  d100  d1000  d10000  d100000  d1000000
     '''
+
 def test_base10to2():
     for num in [1,3,5,7,9,33,99]: #range(1,20):
         binary = base10to2(num)
         print('{0} -->  {1}'.format(num,binary))
 
+def test_truncate():
+    print(truncate(3797))
+
+#test_truncate()
 if __name__ == "__main__":
 #    prob21(10000)
 #    prob22()
@@ -991,8 +1050,9 @@ if __name__ == "__main__":
 #    prob33()
 #    prob34()
 #    prob35(1000000)
-    prob36(1000000)
-    
+#    prob36(1000000)
+    prob37()
+
 #    test_prob31()
 #    shelve_primes_less_than_n(10000000)
     pass
