@@ -159,7 +159,7 @@ def prob22():
 
     For example, when the list is sorted into alphabetical order, COLIN, which is worth 
     3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. So, COLIN would obtain a 
-    score of 938  53 = 49714.
+    score of 938 * 53 = 49714.
     
     What is the total of all the name scores in the file?
     """
@@ -167,9 +167,9 @@ def prob22():
     
     alpha_dict = get_alphabet_dict()
     with open("names.txt", newline='') as csvfile:
-        file = csv.reader(csvfile, delimiter = ',', quotechar='"')
+        namesfile = csv.reader(csvfile, delimiter = ',', quotechar='"')
     
-        for row in file:
+        for row in namesfile:
             names = row
     names.sort()
     
@@ -742,8 +742,68 @@ def prob33():
     If the product of these four fractions is given in its lowest 
     common terms, find the value of the denominator.
     '''
+    
+    curious_fractions = []
+    for denominator in range(11,100):
+        for numerator in range(10,denominator):
+            
+            new_fraction = check_digits(denominator, numerator)
+            
+            if new_fraction is not None:
+                new_num = new_fraction[0]
+                new_denom = new_fraction[1]
+                
+                try:
+                    if new_num / new_denom == numerator / denominator:
+                        curious_fractions.append((numerator, denominator))
+                    
+                except ZeroDivisionError:
+                    print(numerator, denominator)
+    print('curious fractions: {0}'.format(curious_fractions))
+    
+    num_product = 1
+    den_product = 1
+    for curious_fraction in curious_fractions:
+        num_product *= curious_fraction[0]
+        den_product *= curious_fraction[1]
+        
+    print('new numerator: {0}   new denominator: {1}'.format(num_product, den_product))
+    
 
+def check_digits(denom, num):
+    '''
+    Checks to see if the denominator and numerator have the same digit
+    The digit cannot be zero.
+    '''
+    if denom == num:
+        return None
+    
+    denom = str(denom)
+    num = str(num)
+    
+    for den_position, character in enumerate(denom):
+        if character != '0' and character in num:
+            num_position = num.find(character)
+            
+            if den_position == 0:
+                new_denom = int(denom[1])
+            else:
+                new_denom = int(denom[0])
+                
+            if num_position == 0:
+                new_num = int(num[1])
+            
+            else:
+                new_num = int(num[0])
+            
+            return (new_num, new_denom)
+    else:
+        return None
+    
 
+            
+            
+            
 def prob34():
     '''145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 
@@ -847,7 +907,8 @@ if __name__ == "__main__":
 #    prob28(1001)
 #    prob29(100, 100)
 #    prob30()
-#   prob31()
-    test_prob31()
+#    prob31()
+    prob33()
+#    test_prob31()
 #    shelve_primes_less_than_n(1000000)
     pass
