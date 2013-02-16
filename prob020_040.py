@@ -860,7 +860,8 @@ def circularize(number):
     
     return circulars
         
-def prob36():
+
+def prob36(maxnum):
     '''
     The decimal number, 585 = 1001001001 (binary), is palindromic 
     in both bases.
@@ -871,6 +872,46 @@ def prob36():
     (Please note that the palindromic number, in either base, 
     may not include leading zeros.)
     '''
+    nums_found = []
+    for number in range(1, maxnum):
+        
+        # get rid of all numbers end with an even number
+        if number % 2 != 0 and ispalindrome(str(number)):
+            binary = base10to2(number)
+            if ispalindrome(binary):
+                nums_found.append(number)
+    print('All palindromes < {0}:\n{1}'.format(maxnum, nums_found))
+    print('Their sum: {0}'.format(sum(nums_found)))
+    
+def base10to2helper(number, digits_needed, so_far):
+    if digits_needed == 1:
+        if number == 0:
+            return so_far + '0'
+        else:
+            return so_far + '1'
+        
+    if 2 ** (digits_needed - 1) <= number:
+        so_far += '1'
+        number -= 2 ** (digits_needed - 1)
+    else:
+        so_far += '0'
+    
+    return base10to2helper(number, digits_needed - 1, so_far)
+    
+def base10to2(number):
+    '''
+    returns the base2 representation, as a string.
+    '''
+    digits_needed = int(log(number) / log(2)) + 1    
+    so_far = ''
+    
+    return base10to2helper(number, digits_needed, so_far)
+    
+def ispalindrome(astring):
+    if astring == astring[::-1]:
+        return True
+    else:
+        return False
     
     
 def prob37():
@@ -930,7 +971,10 @@ def prob40():
     
     d1  d10  d100  d1000  d10000  d100000  d1000000
     '''
-
+def test_base10to2():
+    for num in [1,3,5,7,9,33,99]: #range(1,20):
+        binary = base10to2(num)
+        print('{0} -->  {1}'.format(num,binary))
 
 if __name__ == "__main__":
 #    prob21(10000)
@@ -946,9 +990,9 @@ if __name__ == "__main__":
 #    prob31()
 #    prob33()
 #    prob34()
-
-#    prob35(10000)
+#    prob35(1000000)
+    prob36(1000000)
     
 #    test_prob31()
-    shelve_primes_less_than_n(10000000)
+#    shelve_primes_less_than_n(10000000)
     pass
