@@ -13,7 +13,7 @@ def calc_primes_less_than_n(nmax):
     Calculates all primes < nmax
     """
     #  Because the algorithm used doesn't work for the number 2, it needs to be initialized.
-    primes_found = [2]
+    primes_found = set([2])
     
     current_number = 3
     while current_number < nmax:
@@ -32,7 +32,7 @@ def calc_primes_less_than_n(nmax):
                 break
             
         if number_is_prime:
-            primes_found.append(current_number)
+            primes_found.add(current_number)
             
         current_number += 1    
     return primes_found
@@ -40,8 +40,8 @@ def calc_primes_less_than_n(nmax):
 def shelve_primes_less_than_n(n=10000000):
     import shelve
     primes_less_than_n = calc_primes_less_than_n(n)
-    myfile = shelve.open('numbers_and_factors')
-    myfile['list_of_primes'] = primes_less_than_n
+    myfile = shelve.open('primes_less_than' + str(n))
+    myfile['primes_less_than' + str(n)] = primes_less_than_n
     myfile.close()
     print('Consider it shelved.')
 
@@ -915,8 +915,8 @@ if __name__ == "__main__":
 #    prob30()
 #    prob31()
 #    prob33()
-    prob34()
+#    prob34()
 
 #    test_prob31()
-#    shelve_primes_less_than_n(1000000)
+    shelve_primes_less_than_n(1000000)
     pass
