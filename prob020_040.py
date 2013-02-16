@@ -804,7 +804,7 @@ def check_digits(denom, num):
             
             
             
-def prob34():
+def prob34(max_num = 1854721):
     '''145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 
     Find the sum of all numbers which are equal to the sum of the 
@@ -812,7 +812,13 @@ def prob34():
 
     Note: as 1! = 1 and 2! = 2 are not sums they are not included.
     '''
-
+    factorions = []
+    for num in range(10, max_num):
+        sum_factorials = sum(factorial(int(i)) for i in str(num))
+        if num == sum_factorials:
+            factorions.append(num)
+    print('The factorions are {0}\nTheir sum is {1}'.format(
+           factorions, sum(factorions)))
 
 def prob35():
     '''
@@ -908,7 +914,9 @@ if __name__ == "__main__":
 #    prob29(100, 100)
 #    prob30()
 #    prob31()
-    prob33()
+#    prob33()
+    prob34()
+
 #    test_prob31()
 #    shelve_primes_less_than_n(1000000)
     pass
