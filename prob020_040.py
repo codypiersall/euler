@@ -5,6 +5,7 @@
 Solutions to problems on Project Euler (www.projecteuler.net) Problems 21-40
 """
 from math import *
+import shelve
 
 SHELVED_FILE = "numbers_and_factors"
 
@@ -13,7 +14,7 @@ def calc_primes_less_than_n(nmax):
     Calculates all primes < nmax
     """
     #  Because the algorithm used doesn't work for the number 2, it needs to be initialized.
-    primes_found = set([2])
+    primes_found = [2]
     
     current_number = 3
     while current_number < nmax:
@@ -32,13 +33,12 @@ def calc_primes_less_than_n(nmax):
                 break
             
         if number_is_prime:
-            primes_found.add(current_number)
+            primes_found.append(current_number)
             
         current_number += 1    
-    return primes_found
+    return set(primes_found)
 
 def shelve_primes_less_than_n(n=10000000):
-    import shelve
     primes_less_than_n = calc_primes_less_than_n(n)
     myfile = shelve.open('primes_less_than' + str(n))
     myfile['primes_less_than' + str(n)] = primes_less_than_n
@@ -48,7 +48,6 @@ def shelve_primes_less_than_n(n=10000000):
 
 def shelve_numbers_factors(max_num=50000):
     """Stores numbers and the sums of their factors up to 28123 for later use"""
-    import shelve
     myfile = shelve.open('numbers_and_factors')
     numbers_factors = get_numbers_and_summed_factors(max_num)
     myfile['numbers_factors'] = numbers_factors
@@ -215,9 +214,6 @@ def prob23(max_num=20162):
     as the sum of two abundant numbers.
     """
     
-    # All the numbers and their factors up to 28123 have been stored
-    # using shelve in the file 'primes_and_factors'
-    import shelve
     primes_file = shelve.open('numbers_and_factors')
     numbers_factors = primes_file['numbers_factors'][0:max_num - 1] # Subtract 1 because the list's 0th element is (2,1)
     primes_file.close()
@@ -258,14 +254,14 @@ def get_abundant_numbers(numbers_factors):
     
     An abundant number is defined as a number which has a greater sum of factors than itself.
     """
-    sum = 1 # index for num_fact
+    total = 1 # index for num_fact
     num = 0 # index for num_fact
     
     abundant_numbers = set()
     
     for num_fact in numbers_factors:
     
-        if num_fact[sum] > num_fact[num]:
+        if num_fact[total] > num_fact[num]:
         
             abundant_numbers.add(num_fact[num])
     
@@ -470,7 +466,6 @@ def prob27(min_num=-1000, max_num=1000):
     expression that produces the maximum number of primes for 
     consecutive values of n, starting with n = 0.
     """
-    import shelve
     
     primes_file = shelve.open(SHELVED_FILE)
     primes = primes_file["list_of_primes"][0:1000]
@@ -820,7 +815,7 @@ def prob34(max_num = 1854721):
     print('The factorions are {0}\nTheir sum is {1}'.format(
            factorions, sum(factorions)))
 
-def prob35():
+def prob35(lessthan=1000000):
     '''
     The number, 197, is called a circular prime because all 
     rotations of the digits: 197, 971, and 719, are themselves prime.
@@ -831,6 +826,40 @@ def prob35():
     How many circular primes are there below one million?
     '''
     
+    primes_file = shelve.open('primes_less_than1000000')
+    primes = primes_file["primes_less_than1000000"]
+    primes_file.close()
+    
+    circular_primes = set()
+    for number in range(lessthan):
+        if number in primes:
+            rotations = circularize(number)
+            if all((i in primes) for i in rotations):
+                for rotation in rotations:
+                    circular_primes.add(rotation)
+            
+    print(circular_primes)
+    print('the answer is {0}'.format(len(circular_primes)))
+    
+def circularize(number):
+    '''
+    Yield all circular permutations of a number.  
+    For instance, 197 would return 197, 971, and 719.
+    '''
+    
+    number = str(number)
+    num_digits = len(number)
+
+    circulars = []
+    for char_index in range(num_digits):
+        if number[char_index] == 0:
+            continue
+        new_num = number[char_index:num_digits] + number[0:char_index]
+        #yield int(new_num)
+        circulars.append(int(new_num))
+    
+    return circulars
+        
 def prob36():
     '''
     The decimal number, 585 = 1001001001 (binary), is palindromic 
@@ -902,6 +931,7 @@ def prob40():
     d1  d10  d100  d1000  d10000  d100000  d1000000
     '''
 
+
 if __name__ == "__main__":
 #    prob21(10000)
 #    prob22()
@@ -917,6 +947,8 @@ if __name__ == "__main__":
 #    prob33()
 #    prob34()
 
+#    prob35(10000)
+    
 #    test_prob31()
-    shelve_primes_less_than_n(1000000)
+    shelve_primes_less_than_n(10000000)
     pass
