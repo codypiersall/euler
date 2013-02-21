@@ -148,7 +148,7 @@ def get_prime_factors(n, primes_found):
             
 def get_all_factors(n, prime_factors):
     """Gives a list of all """
-    all_factors = []
+    all_factors = [1]
     for prime in prime_factors:
         if prime not in all_factors:
             all_factors.append(prime) 
@@ -159,6 +159,7 @@ def get_all_factors(n, prime_factors):
             if (n % test_factor == 0) and (test_factor not in all_factors) and (test_factor != n):
                 all_factors.append(test_factor)
 
+    all_factors.append(n)
     return all_factors
             
 
