@@ -52,7 +52,7 @@ def shelve_numbers_factors(max_num=50000):
     numbers_factors = get_numbers_and_factors(max_num)
     myfile['numbers_factors'] = numbers_factors
     myfile.close()
-    print(numbers_factors)
+    print('Shelved numbers & factors up to {0}'.format(max_num))
 
 
 def prob21(max_num):
@@ -107,9 +107,7 @@ def get_numbers_and_factors(max_num):
     while num <= max_num:
 
         prime_factors_of_num = get_prime_factors(num, primes_found)
-        #print('{0}: {1}'.format(num, prime_factors_of_num))
         all_num_factors = get_all_factors(num, prime_factors_of_num)
-        print('{0}: {1}'.format(num, all_num_factors))
         numbers_factors.append((num,all_num_factors))
         
         num += 1
@@ -1009,5 +1007,5 @@ if __name__ == "__main__":
     
 #    test_prob31()
 #    shelve_primes_less_than_n(10000000)
-    shelve_numbers_factors(100)
+    shelve_numbers_factors(100000)
     pass
