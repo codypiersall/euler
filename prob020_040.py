@@ -47,14 +47,12 @@ def shelve_primes_less_than_n(n=10000000):
 
 
 def shelve_numbers_factors(max_num=50000):
-    """Stores numbers and the sums of their factors up to 28123 for later use"""
-    myfile = shelve.open('numbers_and_factors')
-    numbers_factors = get_numbers_and_summed_factors(max_num)
+    """Shelves numbers and their factors"""
+    myfile = shelve.open('numbers_and_factors_to' + str(max_num))
+    numbers_factors = get_numbers_and_factors(max_num)
     myfile['numbers_factors'] = numbers_factors
     myfile.close()
-
-def uniquify_list(list_):
-    pass
+    print(numbers_factors)
 
 
 def prob21(max_num):
@@ -100,6 +98,24 @@ def get_amicable_pairs(max_num, numbers_factors):
                 amicable_pairs.append((current_num, current_sum))
     return amicable_pairs
 
+
+def get_numbers_and_factors(max_num):
+    '''Returns a list of tuples of number/combo pairs'''
+    numbers_factors = [2, [1]] # used to store (number, factor) tuples
+    primes_found = [2]
+    num = 3
+    while num <= max_num:
+
+        prime_factors_of_num = get_prime_factors(num, primes_found)
+        #print('{0}: {1}'.format(num, prime_factors_of_num))
+        all_num_factors = get_all_factors(num, prime_factors_of_num)
+        print('{0}: {1}'.format(num, all_num_factors))
+        numbers_factors.append((num,all_num_factors))
+        
+        num += 1
+    return numbers_factors
+
+
 def get_numbers_and_summed_factors(max_num):
     '''Returns a list of tuples of number/combo pairs'''
     numbers_factors = [] # used to store (number, factor) tuples
@@ -119,11 +135,8 @@ def get_prime_factors(n, primes_found):
     '''
     Given a list of prime numbers < n, return all of n's prime factors
     '''
-    factors = [1]
-    test_limit = sqrt(n)
+    factors = []
     for prime in primes_found:
-        if prime > test_limit:
-            break
             while n % prime == 0:
                 factors.append(prime)
                 n /= prime
@@ -991,8 +1004,9 @@ if __name__ == "__main__":
 #    prob33()
 #    prob34()
 #    prob35(1000000)
-    prob36(1000000)
+#    prob36(1000000)
     
 #    test_prob31()
 #    shelve_primes_less_than_n(10000000)
+    shelve_numbers_factors(100)
     pass
