@@ -8,23 +8,20 @@ __author__ = 'Cody Piersall'
 import shelve
 from math import sqrt, factorial, log
 
-def prob1(maxnum):
-    '''
+def divisible_by(n, numbers):
+    """for i in range(1,n), return list of numbers divisible by any number in numbers """
+    return [i for i in range(1,n) if any(i % a == 0 for a in numbers)]
+    
+def prob1(maxnum, numbers):
+    """
     If we list all the natural numbers below 10 that are multiples 
     of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
     
     Find the sum of all the multiples of 3 or 5 below 1000.
-    '''
-    good_number = [] # a good_number is a number that is divisible by 3 or 5.
-    test_number = 1
-    while test_number < maxnum:
-        if test_number % 3 == 0 or test_number % 5 == 0:
-            good_number.append(test_number)
-        test_number += 1
-    
-    good_number_sum = sum(good_number)
+    """
+    divisible_nums = divisible_by(maxnum, numbers)
+    good_number_sum = sum(divisible_nums)
     print("The sum of all numbers less than %s divisible by 3 or 5 is %s" % (maxnum, good_number_sum))
-
 
 def prob2(maxnum):
     '''
