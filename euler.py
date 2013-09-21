@@ -19,9 +19,9 @@ def prob1(maxnum, numbers):
     
     Find the sum of all the multiples of 3 or 5 below 1000.
     """
-    divisible_nums = divisible_by(maxnum, numbers)
+    divisible_nums = divisible_by(maxnum, numbers=[3,5])
     good_number_sum = sum(divisible_nums)
-    print("The sum of all numbers less than %s divisible by 3 or 5 is %s" % (maxnum, good_number_sum))
+    print("The sum of all numbers less than %s divisible by %s is %s" % (maxnum, numbers, good_number_sum))
 
 def prob2(maxnum):
     '''
@@ -1689,9 +1689,35 @@ def test_prob31():
     to_make = 12
     prob31_backtrack(coins, to_make)
         
+
+def is_pandigital_generator(low=1, high=9):
+    """ Test whether numbers are low-high pandigital 
+    
+    Args:
+        low: lower bound for pandigitality
+        high: upper bound for pandigitality
+    
+    """
+    
+    pandigital_digits = set(str(i) for i in range(low, high + 1))
+    num_digits_required = 1 + high - low
+    
+    def is_pandigital(numbers):
+        num_digits = sum(int(log(n) + 1) for n in numbers)    
+        if num_digits != num_digits_required: 
+            return False
+        
+        for number in numbers:
+            for digit in str(number):
+                if digit not in pandigital_digits:
+                    return False
+                
+        return True
+    
+    return is_pandigital
     
 def prob32():
-    '''
+    """
     We shall say that an n-digit number is pandigital if it makes use 
     of all the digits 1 to n exactly once; for example, the 5-digit 
     number, 15234, is 1 through 5 pandigital.
@@ -1704,9 +1730,11 @@ def prob32():
     
     HINT: Some products can be obtained in more than one way so be 
     sure to only include it once in your sum.
-    '''
-    pass
-
+    """
+    is_pandigital = is_pandigital_generator(1, 9)
+    
+    print(is_pandigital([231, 456, 789]))
+    print(is_pandigital([12,1324,35,12,312]))
 
 def prob33():
     '''
@@ -2054,6 +2082,7 @@ if __name__ == "__main__":
 #    prob29(100, 100)
 #    prob30()
 #    prob31()
+    prob32()
 #    prob33()
 #    prob34()
 #    prob35(1000000)
