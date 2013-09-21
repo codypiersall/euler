@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-
 """
-Solutions to problems on Project Euler (www.projecteuler.net) Problems 1-20
+Solutions to problems on Project Euler
 """
 __author__ = 'Cody Piersall'
 
+import copy
 import shelve
 from math import sqrt, factorial, log
 
@@ -1703,13 +1703,16 @@ def is_pandigital_generator(low=1, high=9):
     num_digits_required = 1 + high - low
     
     def is_pandigital(numbers):
-        num_digits = sum(int(log(n) + 1) for n in numbers)    
+        digits = copy.copy(pandigital_digits)
+        num_digits = sum(int(log(n,10) + 1) for n in numbers)    
         if num_digits != num_digits_required: 
             return False
         
         for number in numbers:
             for digit in str(number):
-                if digit not in pandigital_digits:
+                try:
+                    digits.remove(digit)
+                except KeyError:
                     return False
                 
         return True
@@ -1735,6 +1738,7 @@ def prob32():
     
     print(is_pandigital([231, 456, 789]))
     print(is_pandigital([12,1324,35,12,312]))
+    print(is_pandigital([123456789]))
 
 def prob33():
     '''
