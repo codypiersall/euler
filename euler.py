@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 """
 Solutions to problems on Project Euler
 """
@@ -6,6 +6,7 @@ __author__ = 'Cody Piersall'
 
 import copy
 import itertools
+import functools
 import shelve
 from math import sqrt, factorial, log
 
@@ -2108,16 +2109,19 @@ def prob40():
     
     d1  d10  d100  d1000  d10000  d100000  d1000000
     '''
-    digits = ['0123456789']
-    def index_to_num(index):
-        if index < 10:
-            return digits[index]
-            
+    product = lambda a, b: a * b
+    a = '.' + ''.join(str(i) for i in range(1, 500000))
+    digits = (int(a[10 ** i]) for i in range(7))
+    print(functools.reduce(product, digits))
 
-def test_base10to2():
-    for num in [1,3,5,7,9,33,99]: #range(1,20):
-        binary = base10to2(num)
-        print('{0} -->  {1}'.format(num,binary))
+def prob41():
+    """
+    We shall say that an n-digit number is pandigital if it makes use of all 
+    the digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital 
+    and is also prime.
+    
+    What is the largest n-digit pandigital prime that exists?
+    """
 
 def test_truncate():
     print(truncate(3797))
@@ -2162,7 +2166,8 @@ if __name__ == "__main__":
 #    prob36(1000000)
 #    prob37()
 #    prob38()
-    prob39()
+#    prob39()
+    prob40()
 #    test_prob31()
 #    shelve_primes_less_than_n(10000000)
     pass
