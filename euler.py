@@ -9,6 +9,15 @@ from math import sqrt, factorial, log
 
 SHELVED_FILE = "numbers_and_factors"
 
+def is_prime(n):
+    """return True if n is prime, else False"""
+    max_val = int(sqrt(n)) + 1
+    for i in range(2, max_val):
+        if n % i == 0:
+            return False
+    
+    return True
+
 
 def divisible_by_any(n, numbers):
     """for i in range(1,n), return list of numbers divisible by any number in numbers """

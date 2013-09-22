@@ -1,6 +1,7 @@
 import euler
 import unittest
 
+print(euler.is_prime(2))
 class TestEuler(unittest.TestCase):
     
     def test_pandigital(self):
@@ -20,5 +21,16 @@ class TestEuler(unittest.TestCase):
         correct_answer = [(20, 48, 52), (24,45,51), (30,40,50)]
         my_answer = list(euler.right_triangle_combinations(120))
         self.assertEqual(correct_answer, my_answer)
+        
+    def test_is_prime(self):
+        p = euler.is_prime
+        self.assertTrue(p(2))
+        self.assertTrue(p(3))
+        self.assertTrue(p(5))
+        self.assertTrue(p(7919))
+        
+        self.assertFalse(p(4))
+        self.assertFalse(p(10))
+        self.assertFalse(p(10000))
 if __name__ == '__main__':
     unittest.main()

@@ -1063,7 +1063,20 @@ def prob41():
     
     What is the largest n-digit pandigital prime that exists?
     """
-
+    gen = euler.is_pandigital_generator
+    is_pandigital = {i: gen(1, i) for i in range(4, 10)}
+    
+    largest = 0
+    
+    # don't need to go any higher than 7654321 because every
+    # 1-8 or 1-9 pandigital number is divisible by 3. 
+    for num in range(1234, 7654322):
+        num_digits = euler.get_num_digits(num)
+        if is_pandigital[num_digits]([num]):
+            if euler.is_prime(num):
+                largest = num
+    print(largest)
+    
 if __name__ == "__main__":
 #    prob1(1000)
 #    prob2(4000000)
@@ -1107,4 +1120,6 @@ if __name__ == "__main__":
 #    prob40()
 #    test_prob31()
 #    shelve_primes_less_than_n(10000000)
+    
+    prob41()
     pass
