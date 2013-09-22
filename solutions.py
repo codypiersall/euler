@@ -276,7 +276,7 @@ def prob13():
     """
     Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
     """
-    with open('prob13.txt') as fd:
+    with open('downloads/prob13.txt') as fd:
         number_as_text = fd.read()
 
     list_of_numbers = number_as_text.split("\n")
@@ -504,7 +504,7 @@ def prob22():
     import csv
     
     alpha_dict = euler.get_alphabet_dict()
-    with open("names.txt", newline='') as csvfile:
+    with open("downloads/names.txt", newline='') as csvfile:
         namesfile = csv.reader(csvfile, delimiter = ',', quotechar='"')
     
         for row in namesfile:
@@ -1076,6 +1076,25 @@ def prob41():
             if euler.is_prime(num):
                 largest = num
     print(largest)
+
+def prob42():
+    """
+    The nth term of the sequence of triangle numbers is given by tn = ½n(n+1); 
+    so the first ten triangle numbers are: 
+    1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ...
+
+    By converting each letter in a word to a number corresponding to its 
+    alphabetical position and adding these values we form a word value. 
+    For example, the word value for SKY is 19 + 11 + 25 = 55 = t10. 
+    If the word value is a triangle number then we shall call the word a 
+    triangle word.
+
+    Using words.txt, a 16K text file containing nearly two-thousand common 
+    English words, how many are triangle words?
+    """
+    
+    with open('downloads/words.txt') as fd:
+        words = fd.read() 
     
 if __name__ == "__main__":
 #    prob1(1000)
