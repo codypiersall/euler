@@ -5,8 +5,11 @@ Solutions to problems on Project Euler
 __author__ = 'Cody Piersall'
 
 import copy
+import itertools
 import shelve
 from math import sqrt, factorial, log
+
+SHELVED_FILE = "numbers_and_factors"
 
 def divisible_by(n, numbers):
     """for i in range(1,n), return list of numbers divisible by any number in numbers """
@@ -1026,8 +1029,6 @@ def prob20(number):
     print('The sum of the digits of %s! is %s' % (number, sum_of_digits))
 
 
-SHELVED_FILE = "numbers_and_factors"
-
 def shelve_primes_less_than_n(n=10000000):
     primes_less_than_n = calc_primes_less_than_n(n)
     myfile = shelve.open('primes_less_than' + str(n))
@@ -1719,7 +1720,20 @@ def is_pandigital_generator(low=1, high=9):
     
     return is_pandigital
     
-def prob32():
+def yield_permutations_maker(low, high):
+    
+    def yield_permutations(string_as_int):
+        for index1 in range(1,high - low):
+            for index2 in range(index1 + 1, high):
+                num1 = int(string_as_int[:index1])
+                num2 = int(string_as_int[index1:index2])
+                num3 = int(string_as_int[index2:]) 
+                
+                yield (num1, num2, num3)
+                
+    return yield_permutations
+
+def prob32(low=1, high=9):
     """
     We shall say that an n-digit number is pandigital if it makes use 
     of all the digits 1 to n exactly once; for example, the 5-digit 
@@ -1734,12 +1748,19 @@ def prob32():
     HINT: Some products can be obtained in more than one way so be 
     sure to only include it once in your sum.
     """
-    is_pandigital = is_pandigital_generator(1, 9)
     
-    print(is_pandigital([231, 456, 789]))
-    print(is_pandigital([12,1324,35,12,312]))
-    print(is_pandigital([123456789]))
-
+    pandigital_numbers = ''
+    for number in range(low, high + 1):
+        pandigital_numbers += str(number)
+    yield_permutations = yield_permutations_maker(low, high)
+    products = set()
+    for permutation in itertools.permutations(pandigital_numbers, high - low + 1):
+        p = ''.join(permutation)
+        for num1, num2, num3 in yield_permutations(p):
+            if num1 * num2 == num3: products.add(num3)
+    
+    print(sum(products))
+    
 def prob33():
     '''
     The fraction 49/98 is a curious fraction, as an inexperienced 
@@ -1813,11 +1834,7 @@ def check_digits(denom, num):
             return (new_num, new_denom)
     else:
         return None
-    
 
-            
-            
-            
 def prob34(max_num = 1854721):
     '''145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 
@@ -2000,6 +2017,10 @@ def truncate(number):
         truncated_numbers.append(int(number[position:num_length]))
     
     return truncated_numbers
+
+def get_num_digits(number, base=10):
+    """ Return the number of digits in number """
+    return int(log(number, base) + 1)
     
 def prob38():
     '''
@@ -2019,8 +2040,40 @@ def prob38():
     formed as the concatenated product of an integer with 
     (1,2, ... , n) where n = 1?
     '''
+    
+    largest = ''
+    is_pandigital = is_pandigital_generator(1, 9)
 
-def prob39():
+    for n in range(1, 100000):
+        num_digits = get_num_digits(n)
+        numbers = [n]
+        multiplier = 2
+        
+        while num_digits < 9:
+            new_num = n * multiplier
+            numbers.append(new_num)
+            num_digits += get_num_digits(new_num)
+            
+        if num_digits == 9 and is_pandigital(numbers):
+            num_as_string = ''.join(str(num) for num in numbers)
+            
+            if num_as_string > largest:
+                largest = num_as_string
+    
+    print(largest)
+    
+def right_triangle_combinations(p):
+    """For a triangle with perimeter p, yield all solutions of right triangles."""
+    # make side1 always be the shortest of the three sides
+    side1_max = p // 3
+    side2_max = (p * 2) // 3
+    for side1 in range(1, side1_max):
+        for side2 in range(side1 + 1, side2_max):
+            side3 = p - (side1 + side2)
+            if side1**2 + side2**2 == side3**2:
+                yield side1, side2, side3
+
+def prob39(max_perimeter=1000):
     '''
     If p is the perimeter of a right angle triangle with integral 
     length sides, {a,b,c}, there are exactly three solutions for p = 120.
@@ -2029,6 +2082,17 @@ def prob39():
 
     For which value of p < 1000, is the number of solutions maximised?
     '''
+    
+    max_found = 0
+    p_max = 1
+    for perimeter in range(12, max_perimeter):
+        num_found = len(list(right_triangle_combinations(perimeter)))
+        if num_found > max_found:
+            max_found = num_found
+            p_max = perimeter
+    
+    print('Found {0} solutions with perimeter of {1}'.format(max_found, p_max))
+
 
 def prob40():
     '''
@@ -2044,6 +2108,11 @@ def prob40():
     
     d1  d10  d100  d1000  d10000  d100000  d1000000
     '''
+    digits = ['0123456789']
+    def index_to_num(index):
+        if index < 10:
+            return digits[index]
+            
 
 def test_base10to2():
     for num in [1,3,5,7,9,33,99]: #range(1,20):
@@ -2086,13 +2155,14 @@ if __name__ == "__main__":
 #    prob29(100, 100)
 #    prob30()
 #    prob31()
-    prob32()
+#    prob32()
 #    prob33()
 #    prob34()
 #    prob35(1000000)
 #    prob36(1000000)
 #    prob37()
-
+#    prob38()
+    prob39()
 #    test_prob31()
 #    shelve_primes_less_than_n(10000000)
     pass
