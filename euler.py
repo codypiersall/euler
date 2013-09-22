@@ -5,20 +5,18 @@ Solutions to problems on Project Euler
 __author__ = 'Cody Piersall'
 
 import copy
-import itertools
-import functools
 import shelve
 from math import sqrt, factorial, log
 
 SHELVED_FILE = "numbers_and_factors"
 
 
-def divisible_by(n, numbers):
+def divisible_by_any(n, numbers):
     """for i in range(1,n), return list of numbers divisible by any number in numbers """
     return [i for i in range(1,n) if any(i % a == 0 for a in numbers)]
     
 
-def clean_fib_numbers(fibonacci_numbers, divisor=2):
+def filter_list_by_divisible(fibonacci_numbers, divisor=2):
     '''
     returns a list from a list of numbers divisible by divisor.
     '''
@@ -47,28 +45,28 @@ def fibonacci(maxnum):
     return fib_nums
 
 
-def get_prime_factors2(n, primes_found):
+def get_prime_factors2(n, primes_less_than_n):
     '''
     Given a list of prime numbers < n, return all of n's prime factors
     '''
     factors = []
-    for prime in primes_found:
+    for prime in primes_less_than_n:
             while n % prime == 0:
                 factors.append(prime)
                 n /= prime
             
-    if n != 1 and n not in primes_found:
-        primes_found.append(n)
+    if n != 1 and n not in primes_less_than_n:
+        primes_less_than_n.append(n)
         
     return factors
             
 
-def get_prime_factors(number):
+def get_prime_factors(n):
     '''
-    returns a list of prime factors
+    Return a list of prime factors of n
     '''
     divisors = []
-    divided_number = number
+    divided_number = n
     while divided_number != 1:
         divisor = 2
         
@@ -80,37 +78,33 @@ def get_prime_factors(number):
             
             else:
                 divisor += 1
-    print('The divisoros of %s is %s' %(number, divisors))
     return divisors
 
 
-def check_if_palindrome(number):
-    number = str(number)
-    backwards_number = number[::-1]
-    if number == backwards_number:
-        is_palindrome = True
+def check_if_palindrome(n):
+    n = str(n)
+    backwards_number = n[::-1]
+    if n == backwards_number:
+        return True
     else:
-        is_palindrome = False
-    return is_palindrome  
+        return False  
         
 
-def sum_squares(number):
+def sum_squares(n):
+    """Square each number from 1 to n, and return the sum."""
     sum_of_squares = 0
-    for num in range(1, number + 1):
+    for num in range(1, n + 1):
         sum_of_squares += num ** 2
     return sum_of_squares
         
-def square_sum(number):
-    square_of_sum = sum(range(1, number + 1)) ** 2
+def square_sum(n):
+    """sum numbers from 1 to n, and return it squared."""
+    square_of_sum = sum(range(1, n + 1)) ** 2
     return square_of_sum
 
 
 def calc_nth_prime(nth_prime):
-    """
-    Method calculates the nth prime number.  It stores each found prime number into
-    a list, and only divides the current number being tested by the previously found
-    prime numbers.
-    """
+    """Return the nth prime number."""
     #  Because the algorithm used doesn't work for the number 2, it needs to be initialized.
     primes_found = [2]
     num_primes_found = 1
@@ -448,7 +442,6 @@ def calibrate_days(start_year):
         days_difference = -days_difference
     
     start_day = (days_difference + 1) % 7
-    print('the first day of %s was %s' %(start_year,start_day))
     return start_day
     
 def get_first_of_month_days(first_day, start_year, end_year):
