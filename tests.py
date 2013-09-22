@@ -1,7 +1,6 @@
 import euler
 import unittest
 
-print(euler.is_prime(2))
 class TestEuler(unittest.TestCase):
     
     def test_pandigital(self):
@@ -40,6 +39,16 @@ class TestEuler(unittest.TestCase):
         self.assertEqual(3, f(34352, 2))
         self.assertEqual(4, f(34352, 3))
         self.assertEqual(3, f(34352, 4))
+        
+    def test_generate_triangular_numbers(self):
+        f = euler.generate_triangular_numbers
+        
+        # make sure it returns the right numbers
+        self.assertEqual(1, len(list(f(1))))
+        self.assertEqual(10, len(list(f(10))))
+        self.assertEqual(25, len(list(f(25))))
+        
+        self.assertEqual([1, 3, 6, 10, 15, 21, 28, 36, 45, 55], list(f(10)))
         
 if __name__ == '__main__':
     unittest.main()

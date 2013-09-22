@@ -1097,12 +1097,23 @@ def prob42():
     Using words.txt, a 16K text file containing nearly two-thousand common 
     English words, how many are triangle words?
     """
-    
+    # map capital letters to their value: 'A' == 1, 'B' == 2, etc.
+    letters_to_numbers = {chr(i): i - 64 for i in range(65, 91)}
+    triangular_numbers = set(euler.generate_triangular_numbers(100))
     with open('downloads/words.txt') as fd:
         reader = csv.reader(fd)
-        words = [line for line in reader]
-        print(words) 
+        words = [line for line in reader][0]
+
+    num_words = 0
+    def sum_word(word):
+        return sum(letters_to_numbers[character] for character in word)
     
+    for word in words:
+        
+        if sum_word(word) in triangular_numbers:
+            num_words += 1
+    
+    print(num_words)
 if __name__ == "__main__":
 #    prob1(1000)
 #    prob2(4000000)

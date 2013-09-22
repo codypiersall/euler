@@ -9,6 +9,15 @@ from math import sqrt, factorial, log
 
 SHELVED_FILE = "numbers_and_factors"
 
+def generate_triangular_numbers(n):
+    """Generate n triangular numbers.
+    A triangular number is a number which has an integer solution
+    for tn = ½n(n+1)
+    
+    """
+    
+    return (.5*i *(i + 1) for i in range(1, n+1))
+    
 def is_prime(n):
     """return True if n is prime, else False"""
     max_val = int(sqrt(n)) + 1
@@ -710,10 +719,9 @@ def get_repeating_digits(number):
 
 def get_digit(n, digit):
     """ Return digit of n. digit of 0 is for ones place, 1 for tens, etc. """
-    
-    num_digits = get_num_digits(n)
-    
-    return n % (10 ** (digit + 1))
+    n = str(n)
+    index = len(n) - (digit + 1)
+    return int(n[index])
 
 def get_sum_of_digits_to_power(number, power):
     sum_of_digits_to_power = 0
@@ -784,6 +792,8 @@ def is_pandigital_generator(low=1, high=9):
         return True
     
     return is_pandigital
+    
+    
     
 def yield_permutations_maker(low, high):
     
