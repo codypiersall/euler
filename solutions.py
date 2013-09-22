@@ -1114,6 +1114,42 @@ def prob42():
             num_words += 1
     
     print(num_words)
+    
+def prob43():
+    """
+    The number, 1406357289, is a 0 to 9 pandigital number because it is made 
+    up of each of the digits 0 to 9 in some order, but it also has a rather 
+    interesting sub-string divisibility property.
+
+    Let d1 be the 1st digit, d2 be the 2nd digit, and so on. In this way, 
+    we note the following:
+
+    d2d3d4=406 is divisible by 2
+    d3d4d5=063 is divisible by 3
+    d4d5d6=635 is divisible by 5
+    d5d6d7=357 is divisible by 7
+    d6d7d8=572 is divisible by 11
+    d7d8d9=728 is divisible by 13
+    d8d9d10=289 is divisible by 17
+    Find the sum of all 0 to 9 pandigital numbers with this property.
+    
+    """
+    
+    primes = [2, 3, 5, 7, 11, 13, 17]
+    numbers = []
+    for p in itertools.permutations('1234567890'):
+        p = ''.join(p)
+        if (p[0] != '0' and
+            int(p[1:4]) % primes[0] ==0 and
+            int(p[2:5]) % primes[1] ==0 and
+            int(p[3:6]) % primes[2] ==0 and
+            int(p[4:7]) % primes[3] ==0 and
+            int(p[5:8]) % primes[4] ==0 and
+            int(p[6:9]) % primes[5] ==0 and
+            int(p[7: ]) % primes[6] ==0):
+            numbers.append(int(p))
+    print(sum(numbers))
+    
 if __name__ == "__main__":
 #    prob1(1000)
 #    prob2(4000000)
@@ -1156,6 +1192,6 @@ if __name__ == "__main__":
 #    prob39()
 #    prob40()    
 #    prob41()
-
-    prob42()
+#    prob42()
+    prob43()
     pass
