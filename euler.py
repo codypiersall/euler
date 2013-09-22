@@ -708,6 +708,12 @@ def get_repeating_digits(number):
 
     return answer
 
+def get_digit(n, digit):
+    """ Return digit of n. digit of 0 is for ones place, 1 for tens, etc. """
+    
+    num_digits = get_num_digits(n)
+    
+    return n % (10 ** (digit + 1))
 
 def get_sum_of_digits_to_power(number, power):
     sum_of_digits_to_power = 0
@@ -895,9 +901,9 @@ def truncate(number):
     
     return truncated_numbers
 
-def get_num_digits(number, base=10):
+def get_num_digits(number):
     """ Return the number of digits in number """
-    return int(log(number, base) + 1)
+    return len(str(number))
     
 def right_triangle_combinations(p):
     """For a triangle with perimeter p, yield all solutions of right triangles."""

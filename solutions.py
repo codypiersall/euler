@@ -1,11 +1,16 @@
 """ All the problems are here. """
 
-import euler
+# built-in imports
+import csv
 import itertools
 import functools
 import shelve
 from math import factorial
+
+# first-party imports
+import euler
 from euler import SHELVED_FILE
+
 
 def prob1(maxnum, numbers):
     """
@@ -1094,7 +1099,9 @@ def prob42():
     """
     
     with open('downloads/words.txt') as fd:
-        words = fd.read() 
+        reader = csv.reader(fd)
+        words = [line for line in reader]
+        print(words) 
     
 if __name__ == "__main__":
 #    prob1(1000)
@@ -1136,9 +1143,8 @@ if __name__ == "__main__":
 #    prob37()
 #    prob38()
 #    prob39()
-#    prob40()
-#    test_prob31()
-#    shelve_primes_less_than_n(10000000)
-    
-    prob41()
+#    prob40()    
+#    prob41()
+
+    prob42()
     pass

@@ -32,5 +32,14 @@ class TestEuler(unittest.TestCase):
         self.assertFalse(p(4))
         self.assertFalse(p(10))
         self.assertFalse(p(10000))
+        
+    def test_get_digit(self):
+        f = euler.get_digit
+        self.assertEqual(2, f(34352, 0))
+        self.assertEqual(5, f(34352, 1))
+        self.assertEqual(3, f(34352, 2))
+        self.assertEqual(4, f(34352, 3))
+        self.assertEqual(3, f(34352, 4))
+        
 if __name__ == '__main__':
     unittest.main()
