@@ -667,37 +667,6 @@ def fibonacci_until(max_num):
     return term_counter
 
 
-def prob26(max_num):
-    """
-    A unit fraction contains 1 in the numerator. The decimal representation 
-    of the unit fractions with denominators 2 to 10 are given:
-
-    1/2    =     0.5
-    1/3    =     0.(3)
-    1/4    =     0.25
-    1/5    =     0.2
-    1/6    =     0.1(6)
-    1/7    =     0.(142857)
-    1/8    =     0.125
-    1/9    =     0.(1)
-    1/10    =     0.1
-    Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It 
-    can be seen that 1/7 has a 6-digit recurring cycle.
-    
-    Find the value of d 1000 for which 1/d contains the longest recurring 
-    cycle in its decimal fraction part.
-    """
-    
-    max_repetitions = 0
-    answer = 0 
-    for number in range(1, max_num + 1):
-        repeating_digits_num = get_repeating_digits(number)
-        if repeating_digits_num > max_repetitions:
-            max_repetitions = repeating_digits_num
-            answer = number
-    
-    print('The best number is %s, it repeats %s digits' % (answer, max_repetitions))
-    
 def get_repeating_digits(number):
     """
     Gets the number of repeating decimals in 1 / number
@@ -739,155 +708,6 @@ def get_repeating_digits(number):
     return answer
 
 
-def prob27(min_num=-1000, max_num=1000):
-    """
-    Euler published the remarkable quadratic formula:
-
-    n**2 + n + 41
-    
-    It turns out that the formula will produce 40 primes for the 
-    consecutive values n = 0 to 39. However, when 
-    n = 40, 402 + 40 + 41 = 40(40 + 1) + 41 is divisible by 41, and 
-    certainly when n = 41, 41� + 41 + 41 is clearly divisible by 41.
-    
-    Using computers, the incredible formula  n�  79n + 1601 was 
-    discovered, which produces 80 primes for the consecutive 
-    values n = 0 to 79. The product of the coefficients, 79 and 1601, is 126479.
-    
-    Considering quadratics of the form:
-    n**2 + an + b, where |a|  1000 and |b|  1000
-    where |n| is the modulus/absolute value of n
-    e.g. |11| = 11 and |4| = 4
-    
-    Find the product of the coefficients, a and b, for the quadratic 
-    expression that produces the maximum number of primes for 
-    consecutive values of n, starting with n = 0.
-    """
-    
-    primes_file = shelve.open(SHELVED_FILE)
-    primes = primes_file["list_of_primes"][0:1000]
-    primes_file.close()
-    a = b = min_num + 1
-    best_a = 0
-    best_b = 0
-    max_consecutive_primes = 0
-    
-#    while a < max_num:
-#        while b < max_num:
-    for a in range(min_num + 1, max_num):
-        for b in range(min_num + 1, max_num):
-            if (b <= 1) or (a % 2 == 0):
-                still_looking = False
-            else:
-                still_looking = True
-            n = 0
-            consecutive_primes = 0
-            
-            while still_looking:
-            
-                test_prime = n ** 2 + a * n + b
-            
-                if test_prime in primes:
-                    consecutive_primes += 1
-                    n += 1
-                
-                else:
-                    still_looking = False
-                    
-                    
-            if consecutive_primes > max_consecutive_primes: 
-                max_consecutive_primes = consecutive_primes
-                best_a = a
-                best_b = b
-            
-#            b+=1
-        
-#        a+=1
-    
-    answer = best_a * best_b
-    
-    print('The a and b that produce the most primes are %d and %d.  Their product is %d' %(best_a, best_b, answer))
-    
-        
-def prob28(dimension):
-    """
-    Starting with the number 1 and moving to the right in a 
-    clockwise direction a 5 by 5 spiral is formed as follows:
-
-    21 22 23 24 25
-    20  7  8  9 10
-    19  6  1  2 11
-    18  5  4  3 12
-    17 16 15 14 13
-    
-    It can be verified that the sum of the numbers on the diagonals is 101.
-    
-    What is the sum of the numbers on the diagonals in a 
-    1001 by 1001 spiral formed in the same way?
-    """
-    sum_ = 0
-    
-    original_dimension = dimension
-    
-    while dimension > 1:
-        dimension_squared = dimension * dimension
-        increment = dimension - 1
-        
-        top_right = dimension_squared
-        top_left = top_right - increment
-        bottom_left = top_left - increment
-        bottom_right = bottom_left - increment
-        sum_ += top_right + top_left + bottom_left + bottom_right
-        
-        dimension -= 2
-    
-    sum_ += 1
-    
-    print("The sum of a %dx%d square is %d" % (original_dimension, original_dimension, sum_))
-    
-def prob29(amax, bmax):
-    """
-    Consider all integer combinations of ab for 2 < a < 5 and 2 < b < 5:
-
-    2**2=4,  2**3=8,   2**4=16,  2**5=32
-    3**2=9,  3**3=27,  3**4=81,  3**5=243
-    4**2=16, 4**3=64,  4**4=256, 4**5=1024
-    5**2=25, 5**3=125, 5**4=625, 5**5=3125
-    
-    If they are then placed in numerical order, with any repeats removed, 
-    we get the following sequence of 15 distinct terms:
-    4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125
-    How many distinct terms are in the sequence generated by a**b for 2 < a < 100 and 2 < b < 100?
-    """
-    
-    distinct_terms = set()
-    
-    for a in range(2, amax + 1):
-        for b in range(2, bmax + 1):
-            distinct_terms.add(a ** b)
-    
-    num_terms = len(distinct_terms)
-    
-    print("There are %d distinct terms for all combinations of a**b from 2 to %d" %(num_terms, amax))
-    
-    
-def prob30(power):
-    """
-    Find all numbers that can be written as the sum of 
-    each digit to the 5th.
-    """
-    max_sum = get_max_sum(power)
-    best_numbers = [] # contains a list of all numbers that fit the criteria above
-    
-    for number in range(2, max_sum):
-        sum_of_digits_to_power = get_sum_of_digits_to_power(number, power)
-    
-        if number == sum_of_digits_to_power:
-            best_numbers.append(number)
-    
-    answer = sum(best_numbers)
-    print('The sum of all numbers that can be written as each digit to the power of %d is %d ' % (power, answer))
-
 def get_sum_of_digits_to_power(number, power):
     sum_of_digits_to_power = 0
     for digit in str(number):
@@ -911,52 +731,6 @@ def get_max_sum(power):
     return max_sum
 
 
-def prob31():
-    '''
-    In England the currency is made up of pound, £, and pence, 
-    p, and there are eight coins in general circulation:
-
-    1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
-    It is possible to make £2 in the following way:
-    
-    1£1 + 150p + 220p + 15p + 12p + 31p
-    How many different ways can £2 be made using any number of coins?In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:
-    
-    1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
-    It is possible to make £2 in the following way:
-    
-    1 * £1 + 1 * 50p + 2 *20p + 1 * 5p + 1 * 2p + 3 * 1p
-    How many different ways can £2 be made using any number of coins?
-    '''
-    
-    P2 = 2
-    P5 = 5
-    P10 = 10
-    P20 = 20
-    P50 = 50
-    P100 = 100
-    P200 = 200
-    
-    times_in_loop = 0
-    num_ways = 0
-    for p200 in range(200 // P200 + 1):
-     for p100 in range(200 // P100 + 1):
-      for p50 in range(200 // P50 + 1):
-       for p20 in range(200 // P20 + 1):
-        for p10 in range(200 // P10 + 1):
-         for p5 in range(200 // P5 + 1):
-          for p2 in range(200 // P2 + 1):
-            times_in_loop += 1
-            coin_sum = p200*P200 + p100*P100 + p50*P50 + p20*P20 + p10*P10 + p5*P5 + p2*P2 
-            if coin_sum <= 200:
-                num_ways += 1
-            else:
-                break
-    
-    print('The number of ways to make 2 pounds is %d' % num_ways)
-    print('The number of times through the loop is %d' % times_in_loop)
-
-
 def get_coin_total(coins, target, so_far, coin):
     global numcalls
     numcalls += 1
@@ -974,31 +748,6 @@ def get_coin_total(coins, target, so_far, coin):
         total += get_coin_total(coins, target, so_far + coins[my_coin], my_coin)
     
     return total
-
-def prob31_backtrack(coins, to_make):
-    '''
-    Problem 31, implementing backtracking.
-    
-    @param coins the list of coin denominations
-    @param to_make, the amount desired
-    @param so_far, the amount of money I've made so far
-    @param num_combinations, the number of combinations found so far.
-    '''
-
-    coins.sort()
-    total_combinations = get_coin_total(coins, to_make, 0, len(coins) - 1)
-    print('The function  was called {0} times'.format(numcalls))
-    print(total_combinations)
-
-
-def test_prob31():
-    # coins = [200, 2, 5, 10, 20, 50, 100, 1]
-    # to_make = 200
-    
-    coins = [2,3,4]
-    to_make = 12
-    prob31_backtrack(coins, to_make)
-        
 
 def is_pandigital_generator(low=1, high=9):
     """ Test whether numbers are low-high pandigital 
@@ -1042,78 +791,6 @@ def yield_permutations_maker(low, high):
                 
     return yield_permutations
 
-def prob32(low=1, high=9):
-    """
-    We shall say that an n-digit number is pandigital if it makes use 
-    of all the digits 1 to n exactly once; for example, the 5-digit 
-    number, 15234, is 1 through 5 pandigital.
-
-    The product 7254 is unusual, as the identity, 39 * 186 = 7254, 
-    containing multiplicand, multiplier, and product is 1 through 9 pandigital.
-
-    Find the sum of all products whose multiplicand/multiplier/product 
-    identity can be written as a 1 through 9 pandigital.
-    
-    HINT: Some products can be obtained in more than one way so be 
-    sure to only include it once in your sum.
-    """
-    
-    pandigital_numbers = ''
-    for number in range(low, high + 1):
-        pandigital_numbers += str(number)
-    yield_permutations = yield_permutations_maker(low, high)
-    products = set()
-    for permutation in itertools.permutations(pandigital_numbers, high - low + 1):
-        p = ''.join(permutation)
-        for num1, num2, num3 in yield_permutations(p):
-            if num1 * num2 == num3: products.add(num3)
-    
-    print(sum(products))
-    
-def prob33():
-    '''
-    The fraction 49/98 is a curious fraction, as an inexperienced 
-    mathematician in attempting to simplify it may incorrectly 
-    believe that 49/98 = 4/8, which is correct, is obtained by 
-    cancelling the 9s.
-
-    We shall consider fractions like, 30/50 = 3/5, to be trivial examples.
-
-    There are exactly four non-trivial examples of this type of fraction, 
-    less than one in value, and containing two digits in the numerator 
-    and denominator.
-
-    If the product of these four fractions is given in its lowest 
-    common terms, find the value of the denominator.
-    '''
-    
-    curious_fractions = []
-    for denominator in range(11,100):
-        for numerator in range(10,denominator):
-            
-            new_fraction = check_digits(denominator, numerator)
-            
-            if new_fraction is not None:
-                new_num = new_fraction[0]
-                new_denom = new_fraction[1]
-                
-                try:
-                    if new_num / new_denom == numerator / denominator:
-                        curious_fractions.append((numerator, denominator))
-                    
-                except ZeroDivisionError:
-                    print(numerator, denominator)
-    print('curious fractions: {0}'.format(curious_fractions))
-    
-    num_product = 1
-    den_product = 1
-    for curious_fraction in curious_fractions:
-        num_product *= curious_fraction[0]
-        den_product *= curious_fraction[1]
-        
-    print('new numerator: {0}   new denominator: {1}'.format(num_product, den_product))
-    
-
 def check_digits(denom, num):
     '''
     Checks to see if the denominator and numerator have the same digit
@@ -1144,52 +821,6 @@ def check_digits(denom, num):
     else:
         return None
 
-def prob34(max_num = 1854721):
-    '''145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
-
-    Find the sum of all numbers which are equal to the sum of the 
-    factorial of their digits.
-
-    Note: as 1! = 1 and 2! = 2 are not sums they are not included.
-    '''
-    factorions = []
-    for num in range(10, max_num):
-        sum_factorials = sum(factorial(int(i)) for i in str(num))
-        if num == sum_factorials:
-            factorions.append(num)
-    print('The factorions are {0}\nTheir sum is {1}'.format(
-           factorions, sum(factorions)))
-
-def prob35(maxnum=1000000):
-    '''
-    The number, 197, is called a circular prime because all 
-    rotations of the digits: 197, 971, and 719, are themselves prime.
-
-    There are thirteen such primes below 
-    100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
-    
-    How many circular primes are there below one million?
-    '''
-    
-    primes_file = shelve.open('primes_less_than1000000')
-    primes = primes_file["primes_less_than1000000"]
-    primes_file.close()
-    
-    circular_primes = set()
-    
-    for number in range(maxnum):
-        
-        if number in primes:
-            rotations = circularize(number)
-            
-            if all((i in primes) for i in rotations):
-    
-                for rotation in rotations:
-                    circular_primes.add(rotation)
-            
-    print(circular_primes)
-    print('the answer is {0}'.format(len(circular_primes)))
-    
 def circularize(number):
     '''
     Yield all circular permutations of a number.  
@@ -1210,28 +841,6 @@ def circularize(number):
     return circulars
         
 
-def prob36(maxnum):
-    '''
-    The decimal number, 585 = 1001001001 (binary), is palindromic 
-    in both bases.
-
-    Find the sum of all numbers, less than one million, which are 
-    palindromic in base 10 and base 2.
-    
-    (Please note that the palindromic number, in either base, 
-    may not include leading zeros.)
-    '''
-    nums_found = []
-    for number in range(1, maxnum):
-        
-        # get rid of all numbers end with an even number
-        if number % 2 != 0 and ispalindrome(str(number)):
-            binary = base10to2(number)
-            if ispalindrome(binary):
-                nums_found.append(number)
-    print('All palindromes < {0}:\n{1}'.format(maxnum, nums_found))
-    print('Their sum: {0}'.format(sum(nums_found)))
-    
 def base10to2helper(number, digits_needed, so_far):
     if digits_needed == 1:
         if number == 0:
@@ -1263,48 +872,6 @@ def ispalindrome(astring):
         return False
     
     
-def prob37():
-    '''
-    The number 3797 has an interesting property. Being prime itself, 
-    it is possible to continuously remove digits from left to right, 
-    and remain prime at each stage: 3797, 797, 97, and 7. 
-    Similarly we can work from right to left: 3797, 379, 37, and 3.
-
-    Find the sum of the only eleven primes that are both truncatable 
-    from left to right and right to left.
-
-    NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
-    '''
-    
-    # pull the primes from the file.
-    primes_file = shelve.open("primes_less_than1000000")
-    primes = primes_file["primes_less_than1000000"]
-    primes_file.close()
-    
-    # don't look for numbers that are too small.
-    number = 11
-    numfound = 0
-    
-    truncatable_primes = []
-    
-    while numfound < 11 and number < 1000000:
-        
-        # don't check non-prime numbers
-        if number in primes:
-            truncations = truncate(number)
-            
-            if all(num in primes for num in truncations):
-                truncatable_primes.append(number)
-                numfound += 1
-                
-        number += 1
-    
-    total = sum(truncatable_primes)
-    
-    print('The truncatable primes are {0}.'.format(truncatable_primes))
-    print('Their total is {0}'.format(total))
-    
-    
 def truncate(number):
     '''
     returns a list of truncated numbers, based on the number given.
@@ -1331,46 +898,6 @@ def get_num_digits(number, base=10):
     """ Return the number of digits in number """
     return int(log(number, base) + 1)
     
-def prob38():
-    '''
-    Take the number 192 and multiply it by each of 1, 2, and 3:
-    192 * 1 = 192
-    192 * 2 = 384
-    192 * 3 = 576
-    By concatenating each product we get the 1 to 9 pandigital, 
-    192384576. We will call 192384576 the concatenated product 
-    of 192 and (1,2,3)
-    
-    The same can be achieved by starting with 9 and multiplying 
-    by 1, 2, 3, 4, and 5, giving the pandigital, 918273645, which is 
-    the concatenated product of 9 and (1,2,3,4,5).
-    
-    What is the largest 1 to 9 pandigital 9-digit number that can be 
-    formed as the concatenated product of an integer with 
-    (1,2, ... , n) where n = 1?
-    '''
-    
-    largest = ''
-    is_pandigital = is_pandigital_generator(1, 9)
-
-    for n in range(1, 100000):
-        num_digits = get_num_digits(n)
-        numbers = [n]
-        multiplier = 2
-        
-        while num_digits < 9:
-            new_num = n * multiplier
-            numbers.append(new_num)
-            num_digits += get_num_digits(new_num)
-            
-        if num_digits == 9 and is_pandigital(numbers):
-            num_as_string = ''.join(str(num) for num in numbers)
-            
-            if num_as_string > largest:
-                largest = num_as_string
-    
-    print(largest)
-    
 def right_triangle_combinations(p):
     """For a triangle with perimeter p, yield all solutions of right triangles."""
     # make side1 always be the shortest of the three sides
@@ -1381,101 +908,4 @@ def right_triangle_combinations(p):
             side3 = p - (side1 + side2)
             if side1**2 + side2**2 == side3**2:
                 yield side1, side2, side3
-
-def prob39(max_perimeter=1000):
-    '''
-    If p is the perimeter of a right angle triangle with integral 
-    length sides, {a,b,c}, there are exactly three solutions for p = 120.
-
-    {20,48,52}, {24,45,51}, {30,40,50}
-
-    For which value of p < 1000, is the number of solutions maximised?
-    '''
-    
-    max_found = 0
-    p_max = 1
-    for perimeter in range(12, max_perimeter):
-        num_found = len(list(right_triangle_combinations(perimeter)))
-        if num_found > max_found:
-            max_found = num_found
-            p_max = perimeter
-    
-    print('Found {0} solutions with perimeter of {1}'.format(max_found, p_max))
-
-
-def prob40():
-    '''
-    An irrational decimal fraction is created by concatenating 
-    the positive integers:
-
-    0.123456789101112131415161718192021...
-
-    It can be seen that the 12th digit of the fractional part is 1.
-    
-    If dn represents the nth digit of the fractional part, find the 
-    value of the following expression.
-    
-    d1  d10  d100  d1000  d10000  d100000  d1000000
-    '''
-    product = lambda a, b: a * b
-    a = '.' + ''.join(str(i) for i in range(1, 500000))
-    digits = (int(a[10 ** i]) for i in range(7))
-    print(functools.reduce(product, digits))
-
-def prob41():
-    """
-    We shall say that an n-digit number is pandigital if it makes use of all 
-    the digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital 
-    and is also prime.
-    
-    What is the largest n-digit pandigital prime that exists?
-    """
-
-def test_truncate():
-    print(truncate(3797))
-
-#test_truncate()
-if __name__ == "__main__":
-#    prob1(1000)
-#    prob2(4000000)
-#    prob3(0) 
-#    prob4()
-#    prob5(20)
-#    prob6(100) 
-#    prob7(1001)
-#    prob8()
-#    prob9(1000)
-#    prob10(20000)
-#    prob11()
-#    prob12(500)
-#    prob13()
-#    prob14(1000)
-#    prob15(20, 20)
-#    prob16(2, 100)
-#    prob17(1, 1000)
-#    prob18()
-#    prob19(1901, 2000, 'Monday')
-#    prob20(100)
-#    prob21(10000)
-#    prob22()
-#    prob23(20162)
-#    prob24('0123456789', 1000000)
-#    prob25(10**999)
-#    prob26(2000)
-#    prob27(-1000, 1000) # takes about 12 s to run
-#    prob28(1001)
-#    prob29(100, 100)
-#    prob30()
-#    prob31()
-#    prob32()
-#    prob33()
-#    prob34()
-#    prob35(1000000)
-#    prob36(1000000)
-#    prob37()
-#    prob38()
-#    prob39()
-    prob40()
-#    test_prob31()
-#    shelve_primes_less_than_n(10000000)
-    pass
+                
