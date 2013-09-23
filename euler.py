@@ -9,6 +9,15 @@ from math import sqrt, factorial, log
 
 SHELVED_FILE = "numbers_and_factors"
 
+def generate_pentagonal_numbers(n):
+    """Generate the first n pentagonal numbers.
+    A pentagonal number is a number which has an integer solution
+    for Pn=n(3n−1)/2
+    
+    """
+    
+    return (i * (3*i - 1)//2 for i in range(1, n+1))
+    
 def generate_triangular_numbers(n):
     """Generate n triangular numbers.
     A triangular number is a number which has an integer solution
