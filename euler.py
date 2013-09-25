@@ -9,6 +9,15 @@ from math import sqrt, factorial, log
 
 SHELVED_FILE = "numbers_and_factors"
 
+def generate_hexagonal_numbers(n):
+    """Generate the first n hexagonal numbers.
+    A hexagonal number is a number which has an integer solution
+    for Hn=n(2n−1)
+    
+    """
+    
+    return (i * (2*i - 1) for i in range(1, n+1))
+    
 def generate_pentagonal_numbers(n):
     """Generate the first n pentagonal numbers.
     A pentagonal number is a number which has an integer solution
