@@ -70,5 +70,10 @@ class TestEuler(unittest.TestCase):
         
         self.assertEqual([1, 6, 15, 28, 45], list(f(5)))
         
+    def test_primesfrom2to(self):
+        f = euler.primesfrom2to
+        primes = [2,3,5,7,11,13,17,19]
+        self.assertEqual(primes, list(f(20)))
+        
 if __name__ == '__main__':
     unittest.main()

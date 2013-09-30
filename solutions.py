@@ -1205,7 +1205,81 @@ def prob45(n):
     
     print('The {}th common number is {}'.format(n, common_number))
         
+
+def prob46():
+    """
+    It was proposed by Christian Goldbach that every odd composite number can be 
+    written as the sum of a prime and twice a square.
+
+    9 = 7 + 2×12
+    15 = 7 + 2×22
+    21 = 3 + 2×32
+    25 = 7 + 2×32
+    27 = 19 + 2×22
+    33 = 31 + 2×12
     
+    It turns out that the conjecture was false.
+    What is the smallest odd composite that cannot be written as the sum of a 
+    prime and twice a square?
+    
+    """
+
+def prob47():
+    """
+    The first two consecutive numbers to have two distinct prime factors are:
+
+    14 = 2 × 7
+    15 = 3 × 5
+    
+    The first three consecutive numbers to have three distinct prime factors are:
+    
+    644 = 2² × 7 × 23
+    645 = 3 × 5 × 43
+    646 = 2 × 17 × 19.
+    
+    Find the first four consecutive integers to have four distinct prime factors. 
+    What is the first of these numbers?
+    
+    """
+    
+    
+def prob48(n, x):
+    """
+    The series, 1**1 + 2**2 + 3**3 + ... + 10**10 = 10405071317.
+    Find the last ten digits of the series, 11 + 22 + 33 + ... + 10001000
+    
+    Return the last 'x' digits of 1**1 + 2**2 + 3**3 + ... + n**n
+    
+    """
+    
+    print(str(sum(i**i for i in range(1, n+1)))[-x:])
+    
+def prob49():
+    """
+    The arithmetic sequence, 1487, 4817, 8147, in which each of the terms 
+    increases by 3330, is unusual in two ways: (i) each of the three terms 
+    are prime, and, (ii) each of the 4-digit numbers are permutations of one another.
+    
+    There are no arithmetic sequences made up of three 1-, 2-, or 3-digit primes, 
+    exhibiting this property, but there is one other 4-digit increasing sequence.
+    
+    What 12-digit number do you form by concatenating the three terms in this sequence?
+    
+    """
+    
+def prob50():
+    """
+    The prime 41, can be written as the sum of six consecutive primes:
+
+    41 = 2 + 3 + 5 + 7 + 11 + 13
+    This is the longest sum of consecutive primes that adds to a prime below one-hundred.
+    
+    The longest sum of consecutive primes below one-thousand that adds to a 
+    prime, contains 21 terms, and is equal to 953.
+    
+    Which prime, below one-million, can be written as the sum of the most consecutive primes?
+    
+    """
 if __name__ == "__main__":
 #    prob1(1000)
 #    prob2(4000000)
@@ -1251,5 +1325,6 @@ if __name__ == "__main__":
 #    prob42()
 #    prob43()
 #    prob44()
-    prob45(3)
+#    prob45(3)
+    prob48(1000,10)
     pass
