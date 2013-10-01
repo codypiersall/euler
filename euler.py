@@ -80,6 +80,16 @@ def fibonacci(maxnum):
     fib_nums.pop()
     return fib_nums
 
+def numbers_are_permutations(numbers):
+    """
+    Check that every number in numbers is a permutation of each other
+    """
+    first_num = sorted(str(numbers[0]))
+    for num in numbers[1:]:
+        if first_num != sorted(str(num)):
+            return False
+    return True
+    
 def get_prime_factors3(n, primes):
     """ 
     Return prime factors of n from iterable of primes

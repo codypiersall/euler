@@ -1269,7 +1269,6 @@ def prob47(n):
     def solve():
         nonlocal num_consecutive
         for number in itertools.count(1, 1):
-            if number % 10000 == 0: print(number)
             if num_consecutive == n:
                 return number - n
             
@@ -1310,6 +1309,21 @@ def prob49():
     What 12-digit number do you form by concatenating the three terms in this sequence?
     
     """
+    def generate_test_numbers():
+        
+        return [i for i in range(1,10000)]
+    
+    primes = euler.primesfrom2to(10000)
+    primes = list(filter(lambda x: x >1000, primes))
+    primeset = set(primes)
+    test_numbers = generate_test_numbers()
+    for prime in primes:
+        for number in test_numbers:
+            if prime + number in primeset and prime + number + number in primeset:
+                if euler.numbers_are_permutations([prime, prime+number, prime+number+number]):
+                    print('{}: {}{}{}'.format(number, prime, prime+number, prime+number+number))
+                    
+    print('OOps, bad guess')
     
 def prob50():
     """
@@ -1324,6 +1338,8 @@ def prob50():
     Which prime, below one-million, can be written as the sum of the most consecutive primes?
     
     """
+    
+    primes = euler.primesfrom2to(1000000)
 if __name__ == "__main__":
 #    prob1(1000)
 #    prob2(4000000)
@@ -1371,6 +1387,7 @@ if __name__ == "__main__":
 #    prob44()
 #    prob45(3)
 #    prob46()
-    prob47(4)
+#    prob47(4)
 #    prob48(1000,10)
+    prob49()
     pass

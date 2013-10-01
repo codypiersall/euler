@@ -91,6 +91,16 @@ class TestEuler(unittest.TestCase):
         factors3 = [3, 3, 3, 37]
         self.assertEqual(factors3, f(n3, primes))
         
-
+    def test_numbers_are_permutations(self):
+        f = euler.numbers_are_permutations
+        l1 = [1234, 2341, 4321]
+        l2 = [1234, 2341, 12345]
+        l3 = [1111, 1111, 1111]
+        
+        self.assertTrue(f(l1))
+        self.assertFalse(f(l2))
+        self.assertTrue(f(l3))
+        self.assertTrue(f([1230, 1023, 2130]))
+        
 if __name__ == '__main__':
     unittest.main()
