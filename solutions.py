@@ -1266,39 +1266,26 @@ def prob47(n):
     
     num_consecutive = 0
     
-    def recurse(number, num_consecutive):
-        """
-        number: the current number
-        num_consecutive: the number of consecutie numbers so far
-        
-        """
-        
-        if num_consecutive == n:
-            return number - n
-        
-        if number in primeset:
-            recurse(number+1, 0)
-        
-        current_factors = set(euler.get_prime_factors3(number, primes))
-        if len(current_factors) != n:
-            recurse(number+1, 0)
-        
-        recurse(number + 1, num_consecutive + 1)
+    def solve():
+        nonlocal num_consecutive
+        for number in itertools.count(1, 1):
+            if number % 10000 == 0: print(number)
+            if num_consecutive == n:
+                return number - n
+            
+            if number in primeset:
+                num_consecutive = 0
+                continue
+            
+            current_factors = set(euler.get_prime_factors3(number, primes))
+            if len(current_factors) != n:
+                num_consecutive = 0
+                continue
+            
+            num_consecutive += 1
     
-    for number in itertools.count(1, 1):
-        if num_consecutive == n:
-            print("The answer to prob47 is {}".format(number - n))
-        
-        if number in primeset:
-            num_consecutive = 0
-            continue
-        
-        current_factors = set(euler.get_prime_factors3(number, primes))
-        if len(current_factors) != n:
-            num_consecutive = 0
-            continue
-        
-        num_consecutive += 1
+    answer = solve()
+    print("The answer to prob47 is {}".format(answer))
     
 def prob48(n, x):
     """
