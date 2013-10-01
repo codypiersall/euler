@@ -75,5 +75,22 @@ class TestEuler(unittest.TestCase):
         primes = [2,3,5,7,11,13,17,19]
         self.assertEqual(primes, list(f(20)))
         
+    def test_get_prime_factors3(self):
+        f = euler.get_prime_factors3
+        primes = euler.primesfrom2to(1000)
+        
+        n1 = 21
+        factors1 = [3,7]
+        self.assertEqual(factors1, f(n1, primes))
+        
+        n2 = 300
+        factors2 = [2,2,3,5,5]
+        self.assertEqual(factors2, f(n2, primes))
+        
+        n3 = 999
+        factors3 = [3, 3, 3, 37]
+        self.assertEqual(factors3, f(n3, primes))
+        
+
 if __name__ == '__main__':
     unittest.main()

@@ -6,7 +6,7 @@ import itertools
 import functools
 import shelve
 from math import factorial
-
+from sys import setrecursionlimit
 # first-party imports
 import euler
 from euler import SHELVED_FILE
@@ -1241,7 +1241,7 @@ def prob46():
             break
     print(odd_number)
 
-def prob47():
+def prob47(n):
     """
     The first two consecutive numbers to have two distinct prime factors are:
 
@@ -1257,8 +1257,48 @@ def prob47():
     Find the first four consecutive integers to have four distinct prime factors. 
     What is the first of these numbers?
     
+    ##
+    Find the first n numbers to have n distinct prime factors
     """
     
+    primes = euler.primesfrom2to(1000000)
+    primeset = set(primes)
+    
+    num_consecutive = 0
+    
+    def recurse(number, num_consecutive):
+        """
+        number: the current number
+        num_consecutive: the number of consecutie numbers so far
+        
+        """
+        
+        if num_consecutive == n:
+            return number - n
+        
+        if number in primeset:
+            recurse(number+1, 0)
+        
+        current_factors = set(euler.get_prime_factors3(number, primes))
+        if len(current_factors) != n:
+            recurse(number+1, 0)
+        
+        recurse(number + 1, num_consecutive + 1)
+    
+    for number in itertools.count(1, 1):
+        if num_consecutive == n:
+            print("The answer to prob47 is {}".format(number - n))
+        
+        if number in primeset:
+            num_consecutive = 0
+            continue
+        
+        current_factors = set(euler.get_prime_factors3(number, primes))
+        if len(current_factors) != n:
+            num_consecutive = 0
+            continue
+        
+        num_consecutive += 1
     
 def prob48(n, x):
     """
@@ -1343,7 +1383,7 @@ if __name__ == "__main__":
 #    prob43()
 #    prob44()
 #    prob45(3)
-    prob46()
-
+#    prob46()
+    prob47(4)
 #    prob48(1000,10)
     pass

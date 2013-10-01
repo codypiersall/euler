@@ -80,7 +80,21 @@ def fibonacci(maxnum):
     fib_nums.pop()
     return fib_nums
 
-
+def get_prime_factors3(n, primes):
+    """ 
+    Return prime factors of n from iterable of primes
+    """
+    
+    factors = []
+    for prime in primes:
+        while n % prime == 0:
+            factors.append(prime)
+            n /= prime
+        if n < prime:
+            break
+    
+    return factors
+    
 def get_prime_factors2(n, primes_less_than_n):
     '''
     Given a list of prime numbers < n, return all of n's prime factors
