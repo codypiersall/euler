@@ -1311,7 +1311,7 @@ def prob49():
     """
     def generate_test_numbers():
         
-        return [i for i in range(1,10000)]
+        return [i for i in range(1,5000)]
     
     primes = euler.primesfrom2to(10000)
     primes = list(filter(lambda x: x >1000, primes))
@@ -1325,7 +1325,7 @@ def prob49():
                     
     print('OOps, bad guess')
     
-def prob50():
+def prob50(n):
     """
     The prime 41, can be written as the sum of six consecutive primes:
 
@@ -1339,7 +1339,30 @@ def prob50():
     
     """
     
-    primes = euler.primesfrom2to(1000000)
+    primes = euler.primesfrom2to(n)
+    primeset = set(primes)
+    most_consecutive = 2
+    for index1, prime in enumerate(primes):
+        candidate = prime
+        index2 = index1 + most_consecutive
+        while candidate < n:
+            try:
+                primes[index2]
+            except IndexError:
+                break
+            
+            candidate = sum(primes[index1:index2])
+            if candidate in primeset:
+                most_consecutive = index2 - index1
+                print(candidate)
+                answer = candidate
+                
+            index2 += 1
+    
+    print('The answer is definitely {}'.format(answer))
+            
+    
+    
 if __name__ == "__main__":
 #    prob1(1000)
 #    prob2(4000000)
@@ -1389,5 +1412,6 @@ if __name__ == "__main__":
 #    prob46()
 #    prob47(4)
 #    prob48(1000,10)
-    prob49()
+#    prob49()
+    prob50(1000000)
     pass
