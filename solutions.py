@@ -261,16 +261,16 @@ def prob12(num_divisors_needed):
     while(not number_found):
        
         prime_factors = euler.get_prime_factors(triangular_number)
-        num_divisors, factors = euler.get_num_divisors(triangular_number, prime_factors)
+        num_divisors, _ = euler.get_num_divisors(triangular_number, prime_factors)
         
         if num_divisors > num_divisors_needed:
             number_found = True
-            print('The first triangular number with over %s divisors is %s' % (num_divisors_needed, triangular_number))
-        
+            
         else:
             triangular_num_increment += 1
             triangular_number += triangular_num_increment
-
+    
+    return triangular_number
 
 def prob13():
     """

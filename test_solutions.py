@@ -79,10 +79,10 @@ class TestSolutions(unittest.TestCase):
     
     def test_prob12(self):
         f = solutions.prob12
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
+        num_divisors = 5
+        answer = 28
+        
+        self.assertEqual(answer, f(num_divisors))
     
     def test_prob13(self):
         f = solutions.prob13

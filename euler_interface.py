@@ -72,11 +72,11 @@ def doprob10():
     print(answer_text.format(maxnum, answer))
 
 def doprob12():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    num_divisors = 500
+    answer = s.prob12(num_divisors)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The first triangular number with {} divisors is {}'
+    print(answer_text.format(num_divisors, answer))
 
 def doprob13():
     maxnum = 20
@@ -347,4 +347,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob10()
+    doprob13()
