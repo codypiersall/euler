@@ -102,7 +102,7 @@ def prob5(maxnum):
     for prime_number in prime_factors:
         product *= prime_number
     
-    print('The smallest number that is divisible by each number in the range 1-%s is %s' % (maxnum, product))
+    return product
 
 
 def prob6(number):
@@ -121,7 +121,8 @@ def prob6(number):
     sum_of_squares = euler.sum_squares(number)
     square_of_sum = euler.square_sum(number)
     difference = square_of_sum - sum_of_squares
-    print ('The difference between the square of the sum and sum of the squares of each number in the range 1-%s is %s' % (number, difference))
+    return difference
+
 
 def prob7(nth_prime_to_find):
     """Calculate the 10001st prime"""

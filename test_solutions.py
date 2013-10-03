@@ -36,22 +36,117 @@ class TestSolutions(unittest.TestCase):
     
     def test_prob5(self):
         f = solutions.prob5
-    
+        maxnum = 10
+        answer = 2520
+        
+        self.assertEqual(answer, f(maxnum))
+        
     
     def test_prob6(self):
         f = solutions.prob6
     
+        answer = ''
+        return
+        self.assertEqual(answer, f())
     
     def test_prob7(self):
         f = solutions.prob7
     
+        answer = ''
+        return
+        self.assertEqual(answer, f())
     
     def test_prob8(self):
         f = solutions.prob8
     
+        answer = ''
+        return
+        self.assertEqual(answer, f())
     
     def test_prob9(self):
         f = solutions.prob9
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob10(self):
+        f = solutions.prob10
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob11(self):
+        f = solutions.prob11
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob12(self):
+        f = solutions.prob12
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob13(self):
+        f = solutions.prob13
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob14(self):
+        f = solutions.prob14
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob15(self):
+        f = solutions.prob15
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob16(self):
+        f = solutions.prob16
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob17(self):
+        f = solutions.prob17
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob18(self):
+        f = solutions.prob18
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob19(self):
+        f = solutions.prob19
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+    
+    def test_prob20(self):
+        f = solutions.prob20
+    
+        answer = ''
+        return
+        self.assertEqual(answer, f())
+        
 
 if __name__ == '__main__':
     unittest.main()

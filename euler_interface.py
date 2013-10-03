@@ -28,6 +28,329 @@ def doprob4():
     answer_text = 'The largest palindrome made from the product of two {}-digit numbers is {}'
     print(answer_text.format(number_digits, answer))
     
+def doprob5():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = 'The smallest number that is divisible by each number from 1 to {} is {}'
+    print(answer_text.format(maxnum, answer))
+
+def doprob6():
+    number = 100
+    answer = s.prob6(number)
+    
+    answer_text = 'The difference between the sum of the squares and square of the sum of the first {} numbers is {}'
+    print(answer_text.format(number, answer))
+
+def doprob7():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob8():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob9():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob10():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob11():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob12():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob13():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob14():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob15():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob16():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob17():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob18():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob19():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob20():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob21():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob22():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob23():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob24():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob25():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob26():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob27():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob28():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob29():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob30():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob31():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob32():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob33():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob34():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob35():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob36():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob37():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob38():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob39():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob40():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob41():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob42():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob43():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob44():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob45():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob46():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob47():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob48():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob49():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+def doprob50():
+    maxnum = 20
+    answer = s.prob5(maxnum)
+    
+    answer_text = ''
+    print(answer_text.format(maxnum, answer))
+
+
 if __name__ == '__main__':
     
-    doprob4()
+    doprob6()
