@@ -71,6 +71,12 @@ def doprob10():
     answer_text = 'The sum of the primes less than {} is {}'
     print(answer_text.format(maxnum, answer))
 
+def doprob11():
+    answer = s.prob11()
+    
+    answer_text = 'The largest product in the 20 x 20 grid is {}'
+    print(answer_text.format(answer))
+
 def doprob12():
     num_divisors = 500
     answer = s.prob12(num_divisors)
@@ -79,11 +85,10 @@ def doprob12():
     print(answer_text.format(num_divisors, answer))
 
 def doprob13():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob13()
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The first ten digits of the sum of the one-hundred 50-digit numbers is {}'
+    print(answer_text.format(answer))
 
 def doprob14():
     maxnum = 20
