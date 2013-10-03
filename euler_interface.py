@@ -113,11 +113,12 @@ def doprob16():
     print(answer_text.format(base, exp, answer))
 
 def doprob17():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    minnum = 1
+    maxnum = 1000
+    answer = s.prob17(minnum, maxnum)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'Writing out all numbers from {} to {} takes {} letters'
+    print(answer_text.format(minnum, maxnum, answer))
 
 def doprob18():
     maxnum = 20
@@ -353,4 +354,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob16()
+    doprob17()

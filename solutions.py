@@ -390,7 +390,8 @@ def prob17(minnum, maxnum):
     total_length = 0
     for n in range(minnum,maxnum + 1):
         total_length += euler.get_num_word_length(n, word_length_dict)
-    print('Writing out all numbers from %s to %s takes %s letters' % (minnum, maxnum, total_length))
+    
+    return total_length
 
 def prob18():
     """
