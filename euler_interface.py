@@ -105,11 +105,12 @@ def doprob15():
     print(answer_text.format(answer, rows, columns))
 
 def doprob16():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    base = 2
+    exp = 100
+    answer = s.prob16(base, exp)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The sum of the digits of {}**{} is {}'
+    print(answer_text.format(base, exp, answer))
 
 def doprob17():
     maxnum = 20
@@ -352,4 +353,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob15()
+    doprob16()

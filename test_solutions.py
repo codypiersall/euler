@@ -101,10 +101,11 @@ class TestSolutions(unittest.TestCase):
     
     def test_prob16(self):
         f = solutions.prob16
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
+        base = 2
+        exponent = 10
+        answer = 7
+        
+        self.assertEqual(answer, f(base, exponent))
     
     def test_prob17(self):
         f = solutions.prob17

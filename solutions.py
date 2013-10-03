@@ -372,8 +372,8 @@ def prob16(base, exp):
     for digit in two_to_thousand:
         digit = int(digit)
         sum_ += digit
-    print('The sum of the digits of %s ** %s = %s' % (base, exp, sum_))
-
+    
+    return sum_
 
 def prob17(minnum, maxnum):
     """
