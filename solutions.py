@@ -38,6 +38,7 @@ def prob2(maxnum):
     divisible_fib_numbers = euler.filter_list_by_divisible(fibonacci_numbers, 2)
     answer = sum(divisible_fib_numbers)
     print('The sum of all Fib #s less than %s divisible by 2 is %s' %(maxnum, answer))
+    return answer
 
 def prob3(number):
     '''
