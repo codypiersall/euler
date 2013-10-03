@@ -71,13 +71,6 @@ def doprob10():
     answer_text = 'The sum of the primes less than {} is {}'
     print(answer_text.format(maxnum, answer))
 
-def doprob11():
-    maxnum = 20
-    answer = s.prob5(maxnum)
-    
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
-
 def doprob12():
     maxnum = 20
     answer = s.prob5(maxnum)

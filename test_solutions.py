@@ -77,13 +77,6 @@ class TestSolutions(unittest.TestCase):
         
         self.assertEqual(answer, f(n))
     
-    def test_prob11(self):
-        f = solutions.prob11
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
-    
     def test_prob12(self):
         f = solutions.prob12
     
