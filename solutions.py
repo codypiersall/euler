@@ -492,6 +492,7 @@ def prob22():
     What is the total of all the name scores in the file?
     """
     
+    #TODO: refactor to use the same function in other problems (~prob45?)
     alpha_dict = euler.get_alphabet_dict()
     with open("downloads/names.txt", newline='') as csvfile:
         namesfile = csv.reader(csvfile, delimiter = ',', quotechar='"')
@@ -510,8 +511,7 @@ def prob22():
         name_value *= multiplier
         total_value += name_value
     
-    print('The sum of all the name values in the list of names is %s' % total_value)
-
+    return total_value
 def prob23(max_num=20162):
     """
     A perfect number is a number for which the sum of its proper divisors is exactly 

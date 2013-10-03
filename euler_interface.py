@@ -169,11 +169,10 @@ def doprob21():
     print(answer_text.format(answer, maxnum))
 
 def doprob22():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob22()
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The sum of all the name things in names.txt is {}'
+    print(answer_text.format(answer))
 
 def doprob23():
     maxnum = 20
@@ -374,4 +373,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob20()
+    doprob22()
