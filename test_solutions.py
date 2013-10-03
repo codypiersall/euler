@@ -127,13 +127,6 @@ class TestSolutions(unittest.TestCase):
         answer = 23
         self.assertEqual(answer, f(number_pyramid))
     
-    def test_prob19(self):
-        f = solutions.prob19
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
-    
     def test_prob20(self):
         f = solutions.prob20
     

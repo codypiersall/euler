@@ -442,8 +442,8 @@ def prob19(start_year, end_year, day_of_week='Sunday'):
         if day in list_of_days:
             num_first_days += 1
     
-    print('%s months from %s to %s began with a %s' % (num_first_days, start_year, end_year, day_of_week))
-
+    return num_first_days
+    
 def prob20(number):
     """Find the sum of digits in 100!"""
     fact = euler.factorial(number)

@@ -145,11 +145,13 @@ def doprob18():
     print(answer_text.format(answer))
 
 def doprob19():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    start = 1900
+    end = 2000
+    day = 'Sunday'
+    answer = s.prob19(start, end, day)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = '{} {}s fell on the first of the month from {} to {}'
+    print(answer_text.format(answer, day, start, end))
 
 def doprob20():
     maxnum = 20
@@ -371,4 +373,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob18()
+    doprob19()
