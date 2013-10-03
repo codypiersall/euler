@@ -44,24 +44,17 @@ class TestSolutions(unittest.TestCase):
     
     def test_prob6(self):
         f = solutions.prob6
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
+        number= 10
+        answer = 2640
+        
+        self.assertEqual(answer, f(number))
     
     def test_prob7(self):
         f = solutions.prob7
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
-    
-    def test_prob8(self):
-        f = solutions.prob8
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
+        nth_prime = 10
+        answer = 29
+
+        self.assertEqual(answer, f(nth_prime))
     
     def test_prob9(self):
         f = solutions.prob9

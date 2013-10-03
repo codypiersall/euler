@@ -128,7 +128,7 @@ def prob7(nth_prime_to_find):
     """Calculate the 10001st prime"""
     primes_found = euler.calc_nth_prime(nth_prime_to_find)
     nth_prime = primes_found[-1]
-    print('Prime # %s is %s' % (nth_prime_to_find,nth_prime))
+    return nth_prime
         
 
 def prob8():

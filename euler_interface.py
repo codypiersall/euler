@@ -43,11 +43,11 @@ def doprob6():
     print(answer_text.format(number, answer))
 
 def doprob7():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    nth_prime_to_find = 10001
+    answer = s.prob7(nth_prime_to_find)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The {}th prime is {}'
+    print(answer_text.format(nth_prime_to_find, answer))
 
 def doprob8():
     maxnum = 20
@@ -353,4 +353,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob6()
+    doprob7()
