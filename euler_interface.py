@@ -98,11 +98,11 @@ def doprob14():
     print(answer_text.format(maxnum, answer))
 
 def doprob15():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    rows = columns = 20
+    answer = s.prob15(rows, columns)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'There are {} unique ways to get from one corner to its opposite on a {}x{} grid.'
+    print(answer_text.format(answer, rows, columns))
 
 def doprob16():
     maxnum = 20
@@ -352,4 +352,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob14()
+    doprob15()

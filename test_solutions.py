@@ -93,10 +93,11 @@ class TestSolutions(unittest.TestCase):
             
     def test_prob15(self):
         f = solutions.prob15
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
+        rows = 2
+        columns = 2
+        answer = 6
+        
+        self.assertEqual(answer, f(rows, columns))
     
     def test_prob16(self):
         f = solutions.prob16

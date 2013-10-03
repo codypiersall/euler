@@ -360,8 +360,8 @@ def prob15(num_rows, num_columns):
     Combinations = (m + n)! / (m! * n!)
     '''  
     unique_combinations = factorial(num_rows + num_columns) / (factorial(num_rows) * factorial(num_columns))
-    print('There are %s unique ways to get from one corner to its opposite on a %sx%s grid.' %(unique_combinations, num_rows, num_columns))
-
+    return unique_combinations
+    
 
 def prob16(base, exp):
     """Sum of the digits of 2 ** 1000"""
