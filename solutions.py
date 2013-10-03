@@ -48,7 +48,7 @@ def prob3(number):
     return largest_prime_factor
     
 
-def prob4(n_digit):
+def prob4(number_digits):
     """
     A palindromic number reads the same both ways. The largest palindrome made 
     from the product of two 2-digit numbers is 9009 = 91 * 99.
@@ -59,8 +59,8 @@ def prob4(n_digit):
     creates a list of palindromes, and prints the largest.
     '''
     palindromes = []
-    low = 10 ** (n_digit-1)
-    high = 10 ** (n_digit)
+    low = 10 ** (number_digits-1)
+    high = 10 ** (number_digits)
     for number1 in range(low, high):
         for number2 in range(low, high):
             product = number1 * number2
@@ -68,7 +68,7 @@ def prob4(n_digit):
             if is_palindrome:
                 palindromes.append(product)
     largest_palindrome = max(palindromes)
-    print('The largest prime number that is the product of two 3-digit numbers is %s' % largest_palindrome)
+    return largest_palindrome
             
 def prob5(maxnum):
     '''

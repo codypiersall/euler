@@ -21,6 +21,13 @@ def doprob3():
     answer_text = 'The largest prime factor of {} is {}'
     print(answer_text.format(number, answer))
     
+def doprob4():
+    number_digits = 3
+    answer = s.prob4(number_digits)
+    
+    answer_text = 'The largest palindrome made from the product of two {}-digit numbers is {}'
+    print(answer_text.format(number_digits, answer))
+    
 if __name__ == '__main__':
     
-    doprob3()    
+    doprob4()
