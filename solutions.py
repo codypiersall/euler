@@ -393,7 +393,7 @@ def prob17(minnum, maxnum):
     
     return total_length
 
-def prob18():
+def prob18(number_pyramid):
     """
     By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
        3
@@ -403,27 +403,12 @@ def prob18():
     That is, 3 + 7 + 4 + 9 = 23.
     Find the maximum total from top to bottom of the triangle below:
     """
-    raw_triangle = '''
-                  75
-                 95 64
-                17 47 82
-               18 35 87 10
-              20 04 82 47 65
-             19 01 23 75 03 34
-            88 02 77 73 07 63 67
-           99 65 04 28 06 16 70 92
-          41 41 26 56 83 40 80 70 33
-         41 48 72 33 47 32 37 16 94 29
-        53 71 44 65 25 43 91 52 97 51 14
-       70 11 33 28 77 73 17 78 39 68 17 57
-      91 71 52 38 17 14 91 43 58 50 27 29 48
-     63 66 04 68 89 53 67 30 73 16 69 87 40 31
-    04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
-    '''
-    triangle = euler.format_triangle(raw_triangle)
+
+    triangle = euler.format_number_pyramid(number_pyramid)
     greatest_sum = euler.get_greatest_sum(triangle)
-    print('The greatest sum out of any path is %s' % greatest_sum)
     
+    return greatest_sum
+
 def prob19(start_year, end_year, day_of_week='Sunday'):
     """
     You are given the following information, but you may prefer to do some research for yourself.

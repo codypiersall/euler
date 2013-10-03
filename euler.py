@@ -449,7 +449,7 @@ def get_greatest_sum(triangle):
     greatest_sum = max(current_row_sum)            
     return greatest_sum
     
-def format_triangle(triangle):
+def format_number_pyramid(triangle):
     """Formats a triangle to be a list of lists with no empty values"""
     triangle_as_list = triangle.split('\n')
     triangle_as_list = [row for row in triangle_as_list if row != '']

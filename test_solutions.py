@@ -117,10 +117,15 @@ class TestSolutions(unittest.TestCase):
     
     def test_prob18(self):
         f = solutions.prob18
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
+        number_pyramid = '''
+                3    
+               7 4  
+              2 4 6 
+             8 5 9 3
+        '''
+        
+        answer = 23
+        self.assertEqual(answer, f(number_pyramid))
     
     def test_prob19(self):
         f = solutions.prob19
