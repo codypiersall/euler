@@ -21,7 +21,6 @@ def prob1(maxnum, numbers):
     """
     divisible_nums = euler.divisible_by_any(maxnum, numbers=[3,5])
     good_number_sum = sum(divisible_nums)
-    print("The sum of all numbers less than %s divisible by %s is %s" % (maxnum, numbers, good_number_sum))
     return good_number_sum
     
 def prob2(maxnum):
@@ -37,7 +36,6 @@ def prob2(maxnum):
     fibonacci_numbers = euler.fibonacci(maxnum)
     divisible_fib_numbers = euler.filter_list_by_divisible(fibonacci_numbers, 2)
     answer = sum(divisible_fib_numbers)
-    print('The sum of all Fib #s less than %s divisible by 2 is %s' %(maxnum, answer))
     return answer
 
 def prob3(number):
