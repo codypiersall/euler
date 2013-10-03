@@ -72,10 +72,10 @@ class TestSolutions(unittest.TestCase):
     
     def test_prob10(self):
         f = solutions.prob10
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
+        n = 10
+        answer = 17
+        
+        self.assertEqual(answer, f(n))
     
     def test_prob11(self):
         f = solutions.prob11

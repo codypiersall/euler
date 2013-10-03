@@ -58,17 +58,17 @@ def doprob8():
     print(answer_text.format(num_length, answer))
 
 def doprob9():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    number = 1000
+    answer = s.prob9(number)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The product of a triangle with the perimeter {} is {}'
+    print(answer_text.format(number, answer))
 
 def doprob10():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    maxnum = 1000000
+    answer = s.prob10(maxnum)
     
-    answer_text = ''
+    answer_text = 'The sum of the primes less than {} is {}'
     print(answer_text.format(maxnum, answer))
 
 def doprob11():
@@ -354,4 +354,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob8()
+    doprob10()

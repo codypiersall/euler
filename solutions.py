@@ -183,9 +183,10 @@ def prob10(nmax):
     Find the sum of all the primes below two million.
     """
 
-    prime_nums = euler.calc_primes_less_than_n(nmax)
-    print('The sum of the primes less than %s is %s' % (nmax, sum(prime_nums)))
-    
+    prime_nums = euler.primesfrom2to(nmax)
+    primes = [int(i) for i in prime_nums]
+    return sum(primes)
+
 
 def prob11():
     '''
