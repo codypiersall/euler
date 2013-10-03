@@ -560,7 +560,8 @@ def prob24(string_to_sort, nth_permutation):
     ordered_string = ''
     for char in ordered_list:
         ordered_string += char
-    print("Permutation # %d of %s is %s" % (nth_permutation, string_to_sort, ordered_string))
+    
+    return ordered_string
     
 def prob25(max_num):
     """

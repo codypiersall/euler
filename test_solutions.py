@@ -161,12 +161,12 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(maxnum))
         
     def test_prob24(self):
-        f = solutions.prob20
-        maxnum = 5
-        answer = 3
-        return
+        f = solutions.prob24
+        string = '1234'
+        answer = '1243'
+        nth_permutation = 2
         
-        self.assertEqual(answer, f(maxnum))
+        self.assertEqual(answer, f(string, nth_permutation))
         
     def test_prob25(self):
         f = solutions.prob20

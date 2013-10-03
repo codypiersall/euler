@@ -183,11 +183,12 @@ def doprob23():
     print(answer_text.format(maxnum, answer))
 
 def doprob24():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    string = '0123456789'
+    nth_permutation = 1000000
+    answer = s.prob24(string, nth_permutation)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The {}th permutation of {} is {}'
+    print(answer_text.format(nth_permutation, string, answer))
 
 def doprob25():
     maxnum = 20
@@ -374,4 +375,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob22()
+    doprob24()
