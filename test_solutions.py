@@ -129,10 +129,10 @@ class TestSolutions(unittest.TestCase):
     
     def test_prob20(self):
         f = solutions.prob20
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
+        number = 5
+        answer = 3
+        
+        self.assertEqual(answer, f(number))
         
 
 if __name__ == '__main__':

@@ -448,8 +448,8 @@ def prob20(number):
     """Find the sum of digits in 100!"""
     fact = euler.factorial(number)
     sum_of_digits = sum([int(digit) for digit in str(fact)])
-    print('The sum of the digits of %s! is %s' % (number, sum_of_digits))
-
+    
+    return sum_of_digits
 
 def prob21(max_num):
     """

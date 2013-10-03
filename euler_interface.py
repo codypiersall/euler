@@ -154,11 +154,11 @@ def doprob19():
     print(answer_text.format(answer, day, start, end))
 
 def doprob20():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    number = 100
+    answer = s.prob20(number)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The sum of the digits in {}! is {}'
+    print(answer_text.format(number, answer))
 
 def doprob21():
     maxnum = 20
@@ -373,4 +373,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob19()
+    doprob20()
