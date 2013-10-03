@@ -14,7 +14,13 @@ def doprob2():
     
     print(answer_text.format(maxnum, answer))
 
+def doprob3():
+    number = 600851475143
+    answer = s.prob3(number)
+    
+    answer_text = 'The largest prime factor of {} is {}'
+    print(answer_text.format(number, answer))
     
 if __name__ == '__main__':
     
-    doprob2()    
+    doprob3()    

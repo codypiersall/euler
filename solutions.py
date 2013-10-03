@@ -45,7 +45,8 @@ def prob3(number):
     '''
     prime_factors = euler.get_prime_factors(number)
     largest_prime_factor = max(prime_factors)
-    print('The largest prime factor of %s is %s' % (number, largest_prime_factor))
+    return largest_prime_factor
+    
 
 def prob4():
     """
@@ -1604,8 +1605,6 @@ def prob60():
     """
 
 if __name__ == "__main__":
-#    prob1(1000)
-#    prob2(4000000)
 #    prob3(0) 
 #    prob4()
 #    prob5(20)

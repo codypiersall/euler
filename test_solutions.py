@@ -22,7 +22,12 @@ class TestSolutions(unittest.TestCase):
     
     def test_prob3(self):
         f = solutions.prob3
-    
+        number = 13195
+        answer = 29
+        
+        self.assertEqual(answer, f(number))
+        
+        
     
     def test_prob4(self):
         f = solutions.prob4
