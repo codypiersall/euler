@@ -152,20 +152,21 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob23(self):
-        f = solutions.prob20
-        number = 5
-        answer = 3
+        #TODO: After prob23 is rewritten, write this test
+        f = solutions.prob23
+        maxnum = 16
+        answer = 16
         return
-        
-        self.assertEqual(answer, f(number))
+    
+        self.assertEqual(answer, f(maxnum))
         
     def test_prob24(self):
         f = solutions.prob20
-        number = 5
+        maxnum = 5
         answer = 3
         return
         
-        self.assertEqual(answer, f(number))
+        self.assertEqual(answer, f(maxnum))
         
     def test_prob25(self):
         f = solutions.prob20

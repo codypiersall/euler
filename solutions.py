@@ -512,7 +512,7 @@ def prob22():
         total_value += name_value
     
     return total_value
-def prob23(max_num=20162):
+def prob23(max_num):
     """
     A perfect number is a number for which the sum of its proper divisors is exactly 
     equal to the number. For example, the sum of the proper divisors of 28 would be 
@@ -531,7 +531,7 @@ def prob23(max_num=20162):
     Find the sum of all the positive integers which cannot be written 
     as the sum of two abundant numbers.
     """
-    
+    #TODO: Rewrite this problem so that it doesn't rely on a shelved file
     primes_file = shelve.open('numbers_and_factors')
     numbers_factors = primes_file['numbers_factors'][0:max_num - 1] # Subtract 1 because the list's 0th element is (2,1)
     primes_file.close()
@@ -542,7 +542,7 @@ def prob23(max_num=20162):
     not_a_sum = [number for number in range(1, max_num+1) if number not in unique_sums]
     prob23_answer = sum(not_a_sum)
     print('The sum of all numbers that can\'t be expressed as the sum of two abundant numbers is %s\n' % prob23_answer)
-    
+    return prob23_answer
     
 def prob24(string_to_sort, nth_permutation):
     """

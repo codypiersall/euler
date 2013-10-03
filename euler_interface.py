@@ -175,6 +175,7 @@ def doprob22():
     print(answer_text.format(answer))
 
 def doprob23():
+    #TODO: after prob23 is rewritten, write the interface
     maxnum = 20
     answer = s.prob5(maxnum)
     
