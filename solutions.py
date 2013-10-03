@@ -48,7 +48,7 @@ def prob3(number):
     return largest_prime_factor
     
 
-def prob4():
+def prob4(n_digit):
     """
     A palindromic number reads the same both ways. The largest palindrome made 
     from the product of two 2-digit numbers is 9009 = 91 * 99.
@@ -59,10 +59,12 @@ def prob4():
     creates a list of palindromes, and prints the largest.
     '''
     palindromes = []
-    for number1 in range(100, 999):
-        for number2 in range(100, 999):
+    low = 10 ** (n_digit-1)
+    high = 10 ** (n_digit)
+    for number1 in range(low, high):
+        for number2 in range(low, high):
             product = number1 * number2
-            is_palindrome = euler.check_if_palindrome(product)
+            is_palindrome = euler.number_is_palindrome(product)
             if is_palindrome:
                 palindromes.append(product)
     largest_palindrome = max(palindromes)

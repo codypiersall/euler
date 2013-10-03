@@ -141,13 +141,9 @@ def get_prime_factors(n):
     return divisors
 
 
-def check_if_palindrome(n):
+def number_is_palindrome(n):
     n = str(n)
-    backwards_number = n[::-1]
-    if n == backwards_number:
-        return True
-    else:
-        return False  
+    return ispalindrome(n)
         
 
 def sum_squares(n):
@@ -926,10 +922,8 @@ def base10to2(number):
     return base10to2helper(number, digits_needed, so_far)
     
 def ispalindrome(astring):
-    if astring == astring[::-1]:
-        return True
-    else:
-        return False
+    return astring == astring[::-1]
+        
 
 def primesfrom2to(n):
     # http://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n-in-python/3035188#3035188
