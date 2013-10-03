@@ -10,32 +10,32 @@ import numpy as np
 
 SHELVED_FILE = "numbers_and_factors"
 
-def generate_hexagonal_numbers(n):
-    """Generate the first n hexagonal numbers.
+def generate_hexagonal_numbers(m, n):
+    """Generate the mth to nth hexagonal numbers.
     A hexagonal number is a number which has an integer solution
     for Hn=n(2n−1)
     
     """
     
-    return (i * (2*i - 1) for i in range(1, n+1))
+    return (i * (2*i - 1) for i in range(m, n+1))
     
-def generate_pentagonal_numbers(n):
-    """Generate the first n pentagonal numbers.
+def generate_pentagonal_numbers(m, n):
+    """Generate the mth to nth pentagonal numbers.
     A pentagonal number is a number which has an integer solution
     for Pn=n(3n−1)/2
     
     """
     
-    return (i * (3*i - 1)//2 for i in range(1, n+1))
+    return (i * (3*i - 1)//2 for i in range(m, n+1))
     
-def generate_triangular_numbers(n):
-    """Generate n triangular numbers.
+def generate_triangular_numbers(m, n):
+    """Generate the mth to nth triangular numbers.
     A triangular number is a number which has an integer solution
     for tn = ½n(n+1)
     
     """
     
-    return (.5*i *(i + 1) for i in range(1, n+1))
+    return (.5*i *(i + 1) for i in range(m, n+1))
     
 def is_prime(n):
     """return True if n is prime, else False"""

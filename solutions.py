@@ -1099,7 +1099,7 @@ def prob42():
     """
     # map capital letters to their value: 'A' == 1, 'B' == 2, etc.
     letters_to_numbers = {chr(i): i - 64 for i in range(65, 91)}
-    triangular_numbers = set(euler.generate_triangular_numbers(100))
+    triangular_numbers = set(euler.generate_triangular_numbers(1, 100))
     with open('downloads/words.txt') as fd:
         reader = csv.reader(fd)
         words = [line for line in reader][0]
@@ -1164,7 +1164,7 @@ def prob44():
     least = 10 ** 10
     
     # Assume the answer is in the first 10000 pentagonal numbers
-    pent_nums = set(euler.generate_pentagonal_numbers(10000))
+    pent_nums = set(euler.generate_pentagonal_numbers(1, 10000))
     pent_nums_in_order = list(pent_nums)
     for index, number1 in enumerate(pent_nums_in_order):
         for number2 in pent_nums_in_order[index:]:
@@ -1192,9 +1192,9 @@ def prob45(n):
     num_found = 0
     common_number=0
     
-    triangle_nums = set(euler.generate_triangular_numbers(100000))
-    pentagonal_nums = set(euler.generate_pentagonal_numbers(100000))
-    hexagonal_nums = list(euler.generate_hexagonal_numbers(100000))
+    triangle_nums = set(euler.generate_triangular_numbers(1, 100000))
+    pentagonal_nums = set(euler.generate_pentagonal_numbers(1, 100000))
+    hexagonal_nums = list(euler.generate_hexagonal_numbers(1, 100000))
     
     for num in hexagonal_nums:
         if num in triangle_nums and num in pentagonal_nums:
