@@ -84,22 +84,13 @@ class TestSolutions(unittest.TestCase):
         
         self.assertEqual(answer, f(num_divisors))
     
-    def test_prob13(self):
-        f = solutions.prob13
-    
-        maxnum = 13
-        
-        answer = 13
-        return
-        self.assertEqual(answer, f(maxnum))
-            
     def test_prob14(self):
         f = solutions.prob14
+        maxnum = 13
+        answer = 9
         
-        answer = ''
-        return
-        self.assertEqual(answer, f())
-    
+        self.assertEqual(answer, f(maxnum))
+            
     def test_prob15(self):
         f = solutions.prob15
     

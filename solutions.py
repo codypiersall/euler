@@ -323,9 +323,7 @@ def prob14(maxnum):
                 longest_sequence = list(temp_sequence)
     starting_number = longest_sequence[0]
     
-    #return starting_number
-    print('Of numbers < %s, The starting number with the longest chain is %s. It has %s terms.' % (maxnum, starting_number, len(longest_sequence)))
-    
+    return starting_number
 
 def prob15(num_rows, num_columns):
     """

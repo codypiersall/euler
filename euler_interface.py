@@ -94,7 +94,7 @@ def doprob14():
     maxnum = 1000000
     answer = s.prob14(maxnum)
     
-    answer_text = 'The starting number with the most terms in the Collatz sequence below {} is {}'
+    answer_text = 'The starting number below {} with the most terms in the Collatz sequence is {}'
     print(answer_text.format(maxnum, answer))
 
 def doprob15():
@@ -352,4 +352,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob13()
+    doprob14()
