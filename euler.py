@@ -193,7 +193,7 @@ def calc_nth_prime(nth_prime):
 def analyze_string(string, consecutive_digits=5):
     """Multiplies every group of 5 consecutive numbers together, stores results in a list."""
     string_length = len(string)
-    iterations_needed = string_length - consecutive_digits
+    iterations_needed = string_length - consecutive_digits + 1
     
     products = []
     

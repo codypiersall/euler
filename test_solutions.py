@@ -56,6 +56,13 @@ class TestSolutions(unittest.TestCase):
 
         self.assertEqual(answer, f(nth_prime))
     
+    def test_prob8(self):
+        f = solutions.prob8
+        num_as_string = '11234545'
+        answer = 3 * 4 * 5 * 4 * 5
+        
+        self.assertEqual(answer, f(num_as_string))
+        
     def test_prob9(self):
         f = solutions.prob9
     
