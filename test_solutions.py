@@ -87,13 +87,15 @@ class TestSolutions(unittest.TestCase):
     def test_prob13(self):
         f = solutions.prob13
     
-        answer = ''
+        maxnum = 13
+        
+        answer = 13
         return
-        self.assertEqual(answer, f())
-    
+        self.assertEqual(answer, f(maxnum))
+            
     def test_prob14(self):
         f = solutions.prob14
-    
+        
         answer = ''
         return
         self.assertEqual(answer, f())

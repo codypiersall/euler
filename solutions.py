@@ -280,11 +280,12 @@ def prob13():
         number_as_text = fd.read()
 
     list_of_numbers = number_as_text.split("\n")
-    list_of_numbers = [int(num) for num in list_of_numbers]
+    
+    list_of_numbers = [int(num) for num in list_of_numbers if num]
     sum_of_nums = sum(list_of_numbers)
     sum_of_nums10 = str(sum_of_nums)[0:10]
-    print('The first 10 digits of the sum of those bunches of numbers is %s' % sum_of_nums10)
-
+    return sum_of_nums10
+    
 
 def prob14(maxnum):
     """
@@ -310,15 +311,19 @@ def prob14(maxnum):
     (13, 9), (40, 8) (20, 7), (10, 6), ..., (2, 1), (1, 0)
     """
     longest_sequence = []
-    minnum = int(maxnum / 2) # any number less than half of the max number will be reached with one more entry by dividing by two.
     
-    for number in range(minnum,maxnum):
+    # any number less than half of the max number will be reached with one more 
+    # entry by dividing by two.
+    minnum = maxnum // 2 
+    
+    for number in range(minnum,maxnum + 1):
         if number not in longest_sequence:
             temp_sequence = euler.get_collatz_sequence(number)
             if len(temp_sequence) > len(longest_sequence):
                 longest_sequence = list(temp_sequence)
     starting_number = longest_sequence[0]
     
+    #return starting_number
     print('Of numbers < %s, The starting number with the longest chain is %s. It has %s terms.' % (maxnum, starting_number, len(longest_sequence)))
     
 
