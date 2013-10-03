@@ -161,11 +161,12 @@ def doprob20():
     print(answer_text.format(number, answer))
 
 def doprob21():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    #TODO: make this problem work.
+    maxnum = 10000
+    answer = s.prob21(maxnum)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'There are {} amicable numbers under 10000'
+    print(answer_text.format(answer, maxnum))
 
 def doprob22():
     maxnum = 20

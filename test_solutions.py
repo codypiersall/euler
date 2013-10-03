@@ -135,7 +135,8 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob21(self):
-        f = solutions.prob20
+        #TODO: add test for problem 21 (it's not modular right now)
+        f = solutions.prob21
         number = 5
         answer = 3
         return

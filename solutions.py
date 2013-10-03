@@ -452,6 +452,7 @@ def prob20(number):
     return sum_of_digits
 
 def prob21(max_num):
+    #TODO: rewrite prob21
     """
     Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide 
     evenly into n). If d(a) = b and d(b) = a, where a  b, then a and b are an amicable pair 
@@ -490,7 +491,6 @@ def prob22():
     
     What is the total of all the name scores in the file?
     """
-    import csv
     
     alpha_dict = euler.get_alphabet_dict()
     with open("downloads/names.txt", newline='') as csvfile:
