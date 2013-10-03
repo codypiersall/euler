@@ -166,27 +166,17 @@ def prob9(number):
     A Pythagorean triplet is a set of three natural numbers, a  b  c, for which,
 
     a**2 + b**2 = c**2
-    For example, 32 + 42 = 9 + 16 = 25 = 5**2.
+    For example, 3**2 + 4**2 = 9 + 16 = 25 = 5**2.
     
     There exists exactly one Pythagorean triplet for which a + b + c = 1000.
     Find the product abc.
     """
-
     
-    max_value = int(number / 2) # add 1 because int() floors the float, add another because range needs 1 more than I would think.
+    sides = list(euler.right_triangle_combinations(number))[0]
     
-    for a in range(1,max_value):
-        for b in range(1, max_value):
-            for c in range(1, max_value):
-                if c <= a or c <= b:
-                    pass
-                else:
-                    if a ** 2 + b ** 2 == c ** 2:
-                        if a + b + c == number:
-                            print('The product of the Pythagorean triplet which adds to %s is %d' % (number, a*b*c))
-                            break
-                
-
+    product = sides[0] * sides[1] * sides[2]
+    return product
+    
 def prob10(nmax):
     """
     The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.

@@ -65,10 +65,10 @@ class TestSolutions(unittest.TestCase):
         
     def test_prob9(self):
         f = solutions.prob9
-    
-        answer = ''
-        return
-        self.assertEqual(answer, f())
+        number = 3 + 4 + 5
+        answer = 3 * 4 * 5
+        
+        self.assertEqual(answer, f(number))
     
     def test_prob10(self):
         f = solutions.prob10
