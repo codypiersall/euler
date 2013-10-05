@@ -227,11 +227,11 @@ def doprob29():
     print(answer_text.format(answer, amax, bmax))
 
 def doprob30():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    power = 5
+    answer = s.prob30(power)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The sum of all numbers that can be written as each digit to the power of {} is {}.'
+    print(answer_text.format(power, answer))
 
 def doprob31():
     maxnum = 20
@@ -376,4 +376,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob29()
+    doprob30()

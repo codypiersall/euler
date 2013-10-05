@@ -206,10 +206,9 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(amax, bmax))
         
     def test_prob30(self):
-        f = solutions.prob20
-        number = 5
-        answer = 3
-        return
+        f = solutions.prob30
+        number = 4
+        answer = 19316
         
         self.assertEqual(answer, f(number))
         

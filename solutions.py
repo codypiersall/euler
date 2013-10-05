@@ -744,8 +744,18 @@ def prob29(amax, bmax):
     
 def prob30(power):
     """
-    Find all numbers that can be written as the sum of 
-    each digit to the 5th.
+    Surprisingly there are only three numbers that can be written as the sum of 
+    fourth powers of their digits:
+
+    1634 = 1**4 + 6**4 + 3**4 + 4**4
+    8208 = 8**4 + 2**4 + 0**4 + 8**4
+    9474 = 9**4 + 4**4 + 7**4 + 4**4
+    As 1 = 1**4 is not a sum it is not included.
+    
+    The sum of these numbers is 1634 + 8208 + 9474 = 19316.
+    
+    Find the sum of all the numbers that can be written as the sum of fifth 
+    powers of their digits.
     """
     max_sum = euler.get_max_sum(power)
     best_numbers = [] # contains a list of all numbers that fit the criteria above
@@ -757,16 +767,26 @@ def prob30(power):
             best_numbers.append(number)
     
     answer = sum(best_numbers)
-    print('The sum of all numbers that can be written as each digit to the power of %d is %d ' % (power, answer))
+    
+    return answer
 
 def prob31(coins, to_make):
-    '''
+    """
+    n England the currency is made up of pound, £, and pence, p, and there are 
+    eight coins in general circulation:
+
+    1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
+    It is possible to make £2 in the following way:
+    
+    1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
+    How many different ways can £2 be made using any number of coins?
+
     Problem 31, implementing backtracking.
     
     Args:
-        coins the list of coin denominations
-        to_make, the amount desired
-    '''
+        coins: the list of coin denominations
+        to_make: the amount desired
+    """
 
     coins.sort()
     total_combinations = euler.get_coin_total(coins, to_make, 0, len(coins) - 1)
