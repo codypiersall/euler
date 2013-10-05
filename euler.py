@@ -772,8 +772,6 @@ def get_max_sum(power):
 
 
 def get_coin_total(coins, target, so_far, coin):
-    global numcalls
-    numcalls += 1
     
     if coin == 0: 
         amount_needed = so_far - target

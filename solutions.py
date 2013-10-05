@@ -790,8 +790,8 @@ def prob31(coins, to_make):
 
     coins.sort()
     total_combinations = euler.get_coin_total(coins, to_make, 0, len(coins) - 1)
-    print(total_combinations)
-
+    
+    return total_combinations
 
 def prob32(low=1, high=9):
     """

@@ -213,12 +213,12 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob31(self):
-        f = solutions.prob20
-        number = 5
-        answer = 3
-        return
+        f = solutions.prob31
+        coins = [1,2,3]
+        to_make = 6
+        answer = 7
         
-        self.assertEqual(answer, f(number))
+        self.assertEqual(answer, f(coins, to_make))
         
     def test_prob32(self):
         f = solutions.prob20

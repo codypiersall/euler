@@ -234,11 +234,12 @@ def doprob30():
     print(answer_text.format(power, answer))
 
 def doprob31():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    coins = [1, 2, 5, 10, 20, 50, 100, 200]
+    to_make = 200
+    answer = s.prob31(coins, to_make)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'There are {} ways to make {} from {}'
+    print(answer_text.format(answer, to_make, coins))
 
 def doprob32():
     maxnum = 20
@@ -376,4 +377,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob30()
+    doprob31()
