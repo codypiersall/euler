@@ -213,11 +213,11 @@ def doprob27():
     print(answer_text.format(min_num, max_num, answer[0], answer[1], answer[0] * answer[1]))
 
 def doprob28():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    dimension = 1001
+    answer = s.prob28(dimension)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The sum of the diagonals of a {0}x{0} square is {1}'
+    print(answer_text.format(dimension, answer))
 
 def doprob29():
     maxnum = 20
@@ -376,4 +376,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob27()
+    doprob28()

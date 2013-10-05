@@ -700,8 +700,6 @@ def prob28(dimension):
     """
     sum_ = 0
     
-    original_dimension = dimension
-    
     while dimension > 1:
         dimension_squared = dimension * dimension
         increment = dimension - 1
@@ -714,10 +712,11 @@ def prob28(dimension):
         
         dimension -= 2
     
+    # add the 1 at the center of the square
     sum_ += 1
     
-    print("The sum of a %dx%d square is %d" % (original_dimension, original_dimension, sum_))
-    
+    return sum_
+
 def prob29(amax, bmax):
     """
     Consider all integer combinations of ab for 2 < a < 5 and 2 < b < 5:

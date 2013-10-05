@@ -192,12 +192,11 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(min_num, max_num))
         
     def test_prob28(self):
-        f = solutions.prob20
-        number = 5
-        answer = 3
-        return
+        f = solutions.prob28
+        dimension = 5
+        answer = 101
         
-        self.assertEqual(answer, f(number))
+        self.assertEqual(answer, f(dimension))
         
     def test_prob29(self):
         f = solutions.prob20
