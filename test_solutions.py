@@ -169,12 +169,11 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(string, nth_permutation))
         
     def test_prob25(self):
-        f = solutions.prob20
-        number = 5
-        answer = 3
-        return
+        f = solutions.prob25
+        num_digits = 3
+        answer = 12
         
-        self.assertEqual(answer, f(number))
+        self.assertEqual(answer, f(num_digits))
         
     def test_prob26(self):
         f = solutions.prob20

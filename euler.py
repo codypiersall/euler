@@ -64,20 +64,19 @@ def filter_list_by_divisible(fibonacci_numbers, divisor=2):
     return divisible_fib_nums
 
 
-def fibonacci(maxnum):
+def fibonacci(maxnum, less_than=True):
     """
-    Calculates the numbers in the fibonacci sequence <= maxnum
+    Calculates the numbers in the fibonacci sequence.
+    If less_than==True, 
     """
-    fib_nums = [1,2]
-    fib_nums_max = fib_nums[-1]
+    fib_nums = [1,1]
     
-    while fib_nums_max <= maxnum:
+    while fib_nums[-1] <= maxnum:
         next_num = fib_nums[-1] + fib_nums[-2]
         fib_nums.append(next_num)
-        fib_nums_max = fib_nums[-1]
         
     # The above while loop added one number too many; time to take it off.
-    fib_nums.pop()
+    if less_than: fib_nums.pop()
     return fib_nums
 
 def numbers_are_permutations(numbers):
@@ -701,19 +700,6 @@ def sort_string_nth_permutation(string_to_sort, nth_permutation, permutation_cou
     # ordered_list.append(string_to_sort.pop())
     
     return ordered_list
-
-def fibonacci_until(max_num):
-    """Does a fibonacci sequence until the term is greater than max_num"""
-    a = 1
-    b = 1
-    term_counter = 2
-    while b <= max_num:
-        b += a
-        a = b - a        
-        term_counter += 1
-    
-    
-    return term_counter
 
 
 def get_repeating_digits(number):

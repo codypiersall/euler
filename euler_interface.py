@@ -191,11 +191,11 @@ def doprob24():
     print(answer_text.format(nth_permutation, string, answer))
 
 def doprob25():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    num_digits = 1000
+    answer = s.prob25(num_digits)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'Term #{} is the first term in the Fibonacci sequence with {} digts'
+    print(answer_text.format(answer, num_digits))
 
 def doprob26():
     maxnum = 20
@@ -375,4 +375,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob24()
+    doprob25()

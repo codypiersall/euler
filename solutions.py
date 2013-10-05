@@ -563,7 +563,7 @@ def prob24(string_to_sort, nth_permutation):
     
     return ordered_string
     
-def prob25(max_num):
+def prob25(num_digits):
     """
     The Fibonacci sequence is defined by the recurrence relation:
 
@@ -586,8 +586,10 @@ def prob25(max_num):
     The 12th term, F12, is the first term to contain three digits.    
     What is the first term in the Fibonacci sequence to contain 1000 digits?
     """
-    counter = euler.fibonacci_until(max_num)
-    print('Term %s is the first term in the Fibonacci sequence greater than %s' %(counter, max_num))
+    max_num = 10 ** (num_digits - 1)
+    fibnums = euler.fibonacci(max_num, less_than=False)
+    length = len(fibnums)
+    return length
 
 def prob26(max_num):
     """
