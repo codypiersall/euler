@@ -740,8 +740,7 @@ def prob29(amax, bmax):
     
     num_terms = len(distinct_terms)
     
-    print("There are %d distinct terms for all combinations of a**b from 2 to %d" %(num_terms, amax))
-    
+    return num_terms
     
 def prob30(power):
     """

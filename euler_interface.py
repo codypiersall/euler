@@ -220,11 +220,11 @@ def doprob28():
     print(answer_text.format(dimension, answer))
 
 def doprob29():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    amax = bmax = 100
+    answer = s.prob29(amax, bmax)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'There are {} distinct terms for all combinations of a**b from a = 2 to {} and b = 2 to {}'
+    print(answer_text.format(answer, amax, bmax))
 
 def doprob30():
     maxnum = 20
@@ -376,4 +376,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob28()
+    doprob29()
