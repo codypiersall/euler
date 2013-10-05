@@ -630,15 +630,15 @@ def prob27(min_num=-1000, max_num=1000):
     
     It turns out that the formula will produce 40 primes for the 
     consecutive values n = 0 to 39. However, when 
-    n = 40, 402 + 40 + 41 = 40(40 + 1) + 41 is divisible by 41, and 
-    certainly when n = 41, 41� + 41 + 41 is clearly divisible by 41.
+    n = 40, 40**2 + 40 + 41 = 40(40 + 1) + 41 is divisible by 41, and 
+    certainly when n = 41, 41**2 + 41 + 41 is clearly divisible by 41.
     
-    Using computers, the incredible formula  n�  79n + 1601 was 
+    Using computers, the incredible formula  n**2  79n + 1601 was 
     discovered, which produces 80 primes for the consecutive 
     values n = 0 to 79. The product of the coefficients, 79 and 1601, is 126479.
     
     Considering quadratics of the form:
-    n**2 + an + b, where |a|  1000 and |b|  1000
+    n**2 + an + b, where |a| <= 1000 and |b| <= 1000
     where |n| is the modulus/absolute value of n
     e.g. |11| = 11 and |4| = 4
     
@@ -647,16 +647,13 @@ def prob27(min_num=-1000, max_num=1000):
     consecutive values of n, starting with n = 0.
     """
     
-    primes_file = shelve.open(SHELVED_FILE)
-    primes = primes_file["list_of_primes"][0:1000]
-    primes_file.close()
-    a = b = min_num + 1
+    # n**2 + an + b
+    primes = set(euler.primesfrom2to(max_num * 25))
+    
     best_a = 0
     best_b = 0
-    max_consecutive_primes = 0
+    most_consecutive_primes = 0
     
-#    while a < max_num:
-#        while b < max_num:
     for a in range(min_num + 1, max_num):
         for b in range(min_num + 1, max_num):
             if (b <= 1) or (a % 2 == 0):
@@ -678,19 +675,12 @@ def prob27(min_num=-1000, max_num=1000):
                     still_looking = False
                     
                     
-            if consecutive_primes > max_consecutive_primes: 
-                max_consecutive_primes = consecutive_primes
+            if consecutive_primes > most_consecutive_primes:
+                most_consecutive_primes = consecutive_primes
                 best_a = a
                 best_b = b
-            
-#            b+=1
         
-#        a+=1
-    
-    answer = best_a * best_b
-    
-    print('The a and b that produce the most primes are %d and %d.  Their product is %d' %(best_a, best_b, answer))
-    
+    return best_a, best_b
         
 def prob28(dimension):
     """

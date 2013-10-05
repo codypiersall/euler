@@ -205,11 +205,12 @@ def doprob26():
     print(answer_text.format(maxnum, answer[0], answer[1]))
 
 def doprob27():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    min_num = -1000
+    max_num = 1000
+    answer = s.prob27(min_num, max_num)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The a and b that produce the most primes between {} and {} are {} and {}.  Their product is {}'
+    print(answer_text.format(min_num, max_num, answer[0], answer[1], answer[0] * answer[1]))
 
 def doprob28():
     maxnum = 20
@@ -375,4 +376,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob26()
+    doprob27()
