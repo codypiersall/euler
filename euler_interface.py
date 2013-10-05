@@ -198,11 +198,11 @@ def doprob25():
     print(answer_text.format(answer, num_digits))
 
 def doprob26():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    maxnum = 1000
+    answer = s.prob26(maxnum)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The best number below {} is {}, it repeats {} digits'
+    print(answer_text.format(maxnum, answer[0], answer[1]))
 
 def doprob27():
     maxnum = 20
@@ -375,4 +375,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob25()
+    doprob26()

@@ -620,7 +620,7 @@ def prob26(max_num):
             max_repetitions = repeating_digits_num
             answer = number
     
-    print('The best number is %s, it repeats %s digits' % (answer, max_repetitions))
+    return answer, max_repetitions
     
 def prob27(min_num=-1000, max_num=1000):
     """

@@ -176,10 +176,9 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(num_digits))
         
     def test_prob26(self):
-        f = solutions.prob20
-        number = 5
-        answer = 3
-        return
+        f = solutions.prob26
+        number = 10
+        answer = 7, 6
         
         self.assertEqual(answer, f(number))
         
