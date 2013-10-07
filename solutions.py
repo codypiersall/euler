@@ -866,7 +866,7 @@ def prob33(num_digits=2):
         
     return curious_fractions, numerator_product, denominator_product
 
-def prob34(max_num = 1854721):
+def prob34(max_num=1854721):
     '''145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 
     Find the sum of all numbers which are equal to the sum of the 
@@ -879,8 +879,8 @@ def prob34(max_num = 1854721):
         sum_factorials = sum(factorial(int(i)) for i in str(num))
         if num == sum_factorials:
             factorions.append(num)
-    print('The factorions are {0}\nTheir sum is {1}'.format(
-           factorions, sum(factorions)))
+    
+    return factorions, sum(factorions)
 
 def prob35(maxnum=1000000):
     '''

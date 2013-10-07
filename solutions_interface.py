@@ -260,11 +260,13 @@ def doprob33():
     print(answer_text.format(curious_fractions,numerator_product, denominator_product))
 
 def doprob34():
-    maxnum = 20
+    maxnum = 1854721
     answer = s.prob5(maxnum)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The factorions are {}.\n'
+    answer_text += 'Their sum is {}'
+    
+    print(answer_text.format(answer[0], answer[1]))
 
 def doprob35():
     maxnum = 20
@@ -381,4 +383,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob33()
+    doprob34()
