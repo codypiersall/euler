@@ -821,7 +821,7 @@ def prob32(low=1, high=9):
     
     return products
     
-def prob33():
+def prob33(num_digits=2):
     '''
     The fraction 49/98 is a curious fraction, as an inexperienced 
     mathematician in attempting to simplify it may incorrectly 
@@ -839,8 +839,11 @@ def prob33():
     '''
     
     curious_fractions = []
-    for denominator in range(11,100):
-        for numerator in range(10,denominator):
+    
+    low = 10 ** (num_digits - 1)
+    high = 10 ** (num_digits)
+    for denominator in range(low + 1, high):
+        for numerator in range(low,denominator):
             
             new_fraction = euler.check_digits(denominator, numerator)
             
