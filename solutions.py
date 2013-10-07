@@ -9,8 +9,6 @@ from math import factorial
 
 # first-party imports
 import euler
-from euler import SHELVED_FILE
-
 
 def prob1(maxnum, numbers):
     """
@@ -962,7 +960,7 @@ def prob37(num_to_find):
     return truncatable_primes
     
 def prob38():
-    '''
+    """
     Take the number 192 and multiply it by each of 1, 2, and 3:
     192 * 1 = 192
     192 * 2 = 384
@@ -978,7 +976,7 @@ def prob38():
     What is the largest 1 to 9 pandigital 9-digit number that can be 
     formed as the concatenated product of an integer with 
     (1,2, ... , n) where n = 1?
-    '''
+    """
     
     largest = ''
     is_pandigital = euler.is_pandigital_generator(1, 9)
@@ -999,7 +997,7 @@ def prob38():
             if num_as_string > largest:
                 largest = num_as_string
     
-    print(largest)
+    return largest
     
 def prob39(max_perimeter=1000):
     '''
@@ -1011,16 +1009,22 @@ def prob39(max_perimeter=1000):
     For which value of p < 1000, is the number of solutions maximised?
     '''
     
+    perimeters = {}
     max_found = 0
     p_max = 1
-    for perimeter in range(12, max_perimeter):
-        num_found = len(list(euler.right_triangle_combinations(perimeter)))
+    for perimeter in range(6, max_perimeter):
+        possible_perimeters = list(euler.right_triangle_combinations(perimeter))
+        num_found = len(possible_perimeters)
+        
+        # only put into the dict of perimeters if it can be a right triangle
+        if possible_perimeters:
+            perimeters[perimeter] = possible_perimeters
+        
         if num_found > max_found:
             max_found = num_found
             p_max = perimeter
     
-    print('Found {0} solutions with perimeter of {1}'.format(max_found, p_max))
-
+    return perimeters, p_max
 
 def prob40():
     '''

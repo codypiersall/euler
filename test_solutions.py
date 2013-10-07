@@ -1,7 +1,6 @@
 import unittest
 
 import solutions
-from scipy.constants.codata import unit
 
 class TestSolutions(unittest.TestCase):
     
@@ -109,11 +108,11 @@ class TestSolutions(unittest.TestCase):
     
     def test_prob17(self):
         f = solutions.prob17
-        min = 1
-        max = 5
+        low = 1
+        high = 5
         answer = 19
         
-        self.assertEqual(answer, f(min, max))
+        self.assertEqual(answer, f(low, high))
     
     def test_prob18(self):
         f = solutions.prob18
@@ -269,6 +268,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(num_to_find))
         
     def test_prob38(self):
+        #TODO: make test for problem 38
         f = solutions.prob38
         number = 5
         answer = 3
@@ -278,11 +278,10 @@ class TestSolutions(unittest.TestCase):
         
     def test_prob39(self):
         f = solutions.prob39
-        number = 5
-        answer = 3
-        return
+        max_perimeter = 13
+        answer = {12: [(3,4,5)]}, 12
         
-        self.assertEqual(answer, f(number))
+        self.assertEqual(answer, f(max_perimeter))
         
     def test_prob40(self):
         f = solutions.prob40

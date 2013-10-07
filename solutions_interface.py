@@ -293,18 +293,21 @@ def doprob37():
     print(answer_text.format(num_to_find, answer, sum(answer)))
 
 def doprob38():
-    maxnum = 20
-    answer = s.prob38(maxnum)
+    #TODO: When prob38 is more generic, make this more generic.
+    answer = s.prob38()
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = ('The largest 1 to 9 andigital 9-digit number that can be formed as the '
+                   'concatenated product of an integer with (1,2, ..., n) is {}')
+    
+    print(answer_text.format(answer))
 
 def doprob39():
-    maxnum = 20
-    answer = s.prob39(maxnum)
+    max_perimeter = 1000
+    perimeters, p_max = s.prob39(max_perimeter)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'For a perimeter below {}, the perimeter with the most possible right triangles is {}. \n'
+    answer_text += 'The potential side lengths: {}'
+    print(answer_text.format(max_perimeter, p_max, perimeters[p_max]))
 
 def doprob40():
     maxnum = 20
@@ -386,4 +389,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob37()
+    doprob39()

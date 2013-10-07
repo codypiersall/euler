@@ -476,7 +476,6 @@ def calibrate_days(start_year):
     '''
     
     days_difference = 0
-    first_day_of_1900 = 1 # Monday
     
     if start_year > 1900:
         begin_year = 1900
@@ -621,7 +620,6 @@ def get_unique_sums(max_num, abundant_numbers):
     unique sums.
     """
     unique_sums = set()
-    numbers_list_length = len(abundant_numbers)
     
     # get every unique sum by scrolling through the list of 
     # abundant numbers and adding each number to every other
