@@ -317,11 +317,11 @@ def doprob40():
     print(answer_text.format(','.join(str(i) for i in digits_of_interest), answer))
 
 def doprob41():
-    maxnum = 20
-    answer = s.prob41(maxnum)
+    num_digits = 7
+    answer = s.prob41(num_digits)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The largest {}-digit pandigital prime is {}'
+    print(answer_text.format(num_digits, answer))
 
 def doprob42():
     maxnum = 20
@@ -389,4 +389,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob40()
+    doprob41()

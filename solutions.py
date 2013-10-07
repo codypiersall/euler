@@ -1051,7 +1051,7 @@ def prob40(digits_of_interest):
     
     return answer
 
-def prob41():
+def prob41(num_digits):
     """
     We shall say that an n-digit number is pandigital if it makes use of all 
     the digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital 
@@ -1059,19 +1059,35 @@ def prob41():
     
     What is the largest n-digit pandigital prime that exists?
     """
+    
+    if num_digits < 4:
+        raise ValueError('{} is too low. No pandigital prime has fewer than 4 digits'.format(num_digits))
+    
+    if num_digits > 7:
+        raise ValueError('{} is too high. No pandigital prime has more than 7 digits'.format(num_digits))
+    
     gen = euler.is_pandigital_generator
-    is_pandigital = {i: gen(1, i) for i in range(4, 10)}
+    is_pandigital = {i: gen(1, i) for i in range(1, num_digits + 1)}
     
     largest = 0
+    # don't test numbers less than 1234; 1234 is the smallest pandigital number.
+    low = 1234
+    
+    high = ''.join(str(i) for i in range(num_digits, 0, -1))
+    high = int(high)
+    
+    primes = set(euler.primesfrom2to(high))
     
     # don't need to go any higher than 7654321 because every
     # 1-8 or 1-9 pandigital number is divisible by 3. 
-    for num in range(1234, 7654322):
+    
+    for num in sorted(primes):
+        
         num_digits = euler.get_num_digits(num)
         if is_pandigital[num_digits]([num]):
-            if euler.is_prime(num):
-                largest = num
-    print(largest)
+            largest = num
+                
+    return largest
 
 def prob42():
     """

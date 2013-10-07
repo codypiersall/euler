@@ -292,11 +292,10 @@ class TestSolutions(unittest.TestCase):
         
     def test_prob41(self):
         f = solutions.prob41
-        number = 5
-        answer = 3
-        return
+        num_digits = 4
+        answer = 4231
         
-        self.assertEqual(answer, f(number))
+        self.assertEqual(answer, f(num_digits))
         
     def test_prob42(self):
         f = solutions.prob42
