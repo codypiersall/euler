@@ -277,11 +277,12 @@ def doprob35():
     print(answer_text.format(maxnum, sorted(answer), len(answer)))
 
 def doprob36():
-    maxnum = 20
+    maxnum = 1000000
     answer = s.prob36(maxnum)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'All palindromic numbers between 1 and {}: {}\n'
+    answer_text += 'Their sum: {}'
+    print(answer_text.format(maxnum, answer, sum(answer)))
 
 def doprob37():
     maxnum = 20
@@ -384,4 +385,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob35()
+    doprob36()

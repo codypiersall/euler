@@ -256,9 +256,8 @@ class TestSolutions(unittest.TestCase):
         
     def test_prob36(self):
         f = solutions.prob36
-        number = 5
-        answer = 3
-        return
+        number = 10
+        answer = [1,3,5,7,9]
         
         self.assertEqual(answer, f(number))
         

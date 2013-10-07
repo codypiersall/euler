@@ -923,8 +923,8 @@ def prob36(maxnum):
             binary = euler.base10to2(number)
             if euler.ispalindrome(binary):
                 nums_found.append(number)
-    print('All palindromes < {0}:\n{1}'.format(maxnum, nums_found))
-    print('Their sum: {0}'.format(sum(nums_found)))
+    
+    return nums_found
     
 def prob37():
     '''
