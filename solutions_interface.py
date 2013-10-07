@@ -261,7 +261,7 @@ def doprob33():
 
 def doprob34():
     maxnum = 1854721
-    answer = s.prob5(maxnum)
+    answer = s.prob34(maxnum)
     
     answer_text = 'The factorions are {}.\n'
     answer_text += 'Their sum is {}'
