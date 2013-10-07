@@ -285,11 +285,12 @@ def doprob36():
     print(answer_text.format(maxnum, answer, sum(answer)))
 
 def doprob37():
-    maxnum = 20
-    answer = s.prob37(maxnum)
+    num_to_find = 11
+    answer = s.prob37(num_to_find)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The first {} truncatable primes are {}. \n'
+    answer_text += 'Their sum is {}'
+    print(answer_text.format(num_to_find, answer, sum(answer)))
 
 def doprob38():
     maxnum = 20
@@ -385,4 +386,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob36()
+    doprob37()

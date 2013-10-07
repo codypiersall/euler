@@ -933,17 +933,17 @@ def truncate(number):
     [3797, 797, 97, 7, 379, 37, 3], although not in that order.
     '''
     
+    truncated_numbers = [number]
     number = str(number)
-    num_length = len(number)
-    truncated_numbers = [int(number)]
+    length = len(number)
     
-    for position in range(1, num_length):
+    for position in range(1, length):
         
         # take away the right digits
-        truncated_numbers.append(int(number[0: num_length - position]))
+        truncated_numbers.append(int(number[0: length - position]))
         
         # take away the left digits
-        truncated_numbers.append(int(number[position:num_length]))
+        truncated_numbers.append(int(number[position:length]))
     
     return truncated_numbers
 

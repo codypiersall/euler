@@ -926,7 +926,7 @@ def prob36(maxnum):
     
     return nums_found
     
-def prob37():
+def prob37(num_to_find):
     '''
     The number 3797 has an interesting property. Being prime itself, 
     it is possible to continuously remove digits from left to right, 
@@ -939,34 +939,27 @@ def prob37():
     NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
     '''
     
+    if num_to_find > 11:
+        raise ValueError('There are only 11 truncatble primes. {} is too many'.format(num_to_find))
     # pull the primes from the file.
-    primes_file = shelve.open("primes_less_than1000000")
-    primes = primes_file["primes_less_than1000000"]
-    primes_file.close()
+    primes = euler.primesfrom2to(1000000)
     
     # don't look for numbers that are too small.
-    number = 11
     numfound = 0
     
     truncatable_primes = []
     
-    while numfound < 11 and number < 1000000:
+    for prime in sorted(primes):
         
-        # don't check non-prime numbers
-        if number in primes:
-            truncations = euler.truncate(number)
+        if prime < 11: continue
+        truncations = euler.truncate(prime)
             
-            if all(num in primes for num in truncations):
-                truncatable_primes.append(number)
-                numfound += 1
-                
-        number += 1
+        if all(num in primes for num in truncations):
+            truncatable_primes.append(prime)
+            numfound += 1
+            if numfound == num_to_find: break
     
-    total = sum(truncatable_primes)
-    
-    print('The truncatable primes are {0}.'.format(truncatable_primes))
-    print('Their total is {0}'.format(total))
-    
+    return truncatable_primes
     
 def prob38():
     '''
