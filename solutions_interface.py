@@ -324,11 +324,11 @@ def doprob41():
     print(answer_text.format(num_digits, answer))
 
 def doprob42():
-    maxnum = 20
-    answer = s.prob42(maxnum)
+    file = 'downloads/words.txt'
+    answer = s.prob42(file)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'There are {} triangle number words in the text file {}'
+    print(answer_text.format(answer, file))
 
 def doprob43():
     maxnum = 20
@@ -389,4 +389,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob41()
+    doprob42()

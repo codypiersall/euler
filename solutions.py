@@ -1070,8 +1070,6 @@ def prob41(num_digits):
     is_pandigital = {i: gen(1, i) for i in range(1, num_digits + 1)}
     
     largest = 0
-    # don't test numbers less than 1234; 1234 is the smallest pandigital number.
-    low = 1234
     
     high = ''.join(str(i) for i in range(num_digits, 0, -1))
     high = int(high)
@@ -1089,7 +1087,7 @@ def prob41(num_digits):
                 
     return largest
 
-def prob42():
+def prob42(file):
     """
     The nth term of the sequence of triangle numbers is given by tn = ½n(n+1); 
     so the first ten triangle numbers are: 
@@ -1107,7 +1105,7 @@ def prob42():
     # map capital letters to their value: 'A' == 1, 'B' == 2, etc.
     letters_to_numbers = {chr(i): i - 64 for i in range(65, 91)}
     triangular_numbers = set(euler.generate_triangular_numbers(1, 100))
-    with open('downloads/words.txt') as fd:
+    with open(file) as fd:
         reader = csv.reader(fd)
         words = [line for line in reader][0]
 
@@ -1120,8 +1118,8 @@ def prob42():
         if sum_word(word) in triangular_numbers:
             num_words += 1
     
-    print(num_words)
-    
+    return num_words
+
 def prob43():
     """
     The number, 1406357289, is a 0 to 9 pandigital number because it is made 
@@ -1609,54 +1607,3 @@ def prob60():
     concatenate to produce another prime.
     
     """
-
-if __name__ == "__main__":
-#    prob3(0) 
-#    prob4()
-#    prob5(20)
-#    prob6(100) 
-#    prob7(1001)
-#    prob8()
-#    prob9(1000)
-#    prob10(20000)
-#    prob11()
-#    prob12(500)
-#    prob13()
-#    prob14(1000)
-#    prob15(20, 20)
-#    prob16(2, 100)
-#    prob17(1, 1000)
-#    prob18()
-#    prob19(1901, 2000, 'Monday')
-#    prob20(100)
-#    prob21(10000)
-#    prob22()
-#    prob23(20162)
-#    prob24('0123456789', 1000000)
-#    prob25(10**999)
-#    prob26(2000)
-#    prob27(-1000, 1000) # takes about 12 s to run
-#    prob28(1001)
-#    prob29(100, 100)
-#    prob30()
-#    prob31()
-#    prob32()
-#    prob33()
-#    prob34()
-#    prob35(1000000)
-#    prob36(1000000)
-#    prob37()
-#    prob38()
-#    prob39()
-#    prob40()    
-#    prob41()
-#    prob42()
-#    prob43()
-#    prob44()
-#    prob45(3)
-#    prob46()
-#    prob47(4)
-#    prob48(1000,10)
-#    prob49()
-#    prob50(1000000)
-    pass
