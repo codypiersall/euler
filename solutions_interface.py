@@ -251,11 +251,13 @@ def doprob32():
     print(answer_text.format(low, high, answer))
 
 def doprob33():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    num_digits = 2
+    curious_fractions, numerator_product, denominator_product = s.prob33(num_digits)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'Curious fractions = {}\n'
+    answer_text += 'Curious fractions numerator product={}, denominator product={}.'
+    
+    print(answer_text.format(curious_fractions,numerator_product, denominator_product))
 
 def doprob34():
     maxnum = 20
@@ -379,4 +381,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob32()
+    doprob33()
