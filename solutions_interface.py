@@ -310,11 +310,11 @@ def doprob39():
     print(answer_text.format(max_perimeter, p_max, perimeters[p_max]))
 
 def doprob40():
-    maxnum = 20
-    answer = s.prob40(maxnum)
+    digits_of_interest = [10**i for i in range(7)]
+    answer = s.prob40(digits_of_interest)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The product of the {} digits in the irrational decimal fraction created by concatenating positive integers is {}'
+    print(answer_text.format(','.join(str(i) for i in digits_of_interest), answer))
 
 def doprob41():
     maxnum = 20
@@ -389,4 +389,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob39()
+    doprob40()

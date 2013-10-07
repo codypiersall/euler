@@ -1026,7 +1026,7 @@ def prob39(max_perimeter=1000):
     
     return perimeters, p_max
 
-def prob40():
+def prob40(digits_of_interest):
     '''
     An irrational decimal fraction is created by concatenating 
     the positive integers:
@@ -1038,12 +1038,18 @@ def prob40():
     If dn represents the nth digit of the fractional part, find the 
     value of the following expression.
     
-    d1  d10  d100  d1000  d10000  d100000  d1000000
+    d1 * d10 * d100 * d1000 * d10000 * d100000 * d1000000
     '''
-    product = lambda a, b: a * b
-    a = '.' + ''.join(str(i) for i in range(1, 500000))
-    digits = (int(a[10 ** i]) for i in range(7))
-    print(functools.reduce(product, digits))
+    def product(x,y): return x * y
+    
+    max_digit = max(digits_of_interest)
+    
+    string = '.' + ''.join(str(i) for i in range(1, max_digit))
+    digits = (int(string[digit]) for digit in digits_of_interest)
+    
+    answer = functools.reduce(product, digits, 1)
+    
+    return answer
 
 def prob41():
     """
