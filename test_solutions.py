@@ -255,7 +255,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, len(f(number)))
         
     def test_prob36(self):
-        f = solutions.prob20
+        f = solutions.prob36
         number = 5
         answer = 3
         return
@@ -263,7 +263,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob37(self):
-        f = solutions.prob20
+        f = solutions.prob37
         number = 5
         answer = 3
         return
@@ -271,7 +271,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob38(self):
-        f = solutions.prob20
+        f = solutions.prob38
         number = 5
         answer = 3
         return
@@ -279,7 +279,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob39(self):
-        f = solutions.prob20
+        f = solutions.prob39
         number = 5
         answer = 3
         return
@@ -287,7 +287,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob40(self):
-        f = solutions.prob20
+        f = solutions.prob40
         number = 5
         answer = 3
         return
@@ -295,7 +295,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob41(self):
-        f = solutions.prob20
+        f = solutions.prob41
         number = 5
         answer = 3
         return
@@ -303,7 +303,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob42(self):
-        f = solutions.prob20
+        f = solutions.prob42
         number = 5
         answer = 3
         return
@@ -311,7 +311,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob43(self):
-        f = solutions.prob20
+        f = solutions.prob43
         number = 5
         answer = 3
         return
@@ -319,7 +319,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob44(self):
-        f = solutions.prob20
+        f = solutions.prob44
         number = 5
         answer = 3
         return
@@ -327,7 +327,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob45(self):
-        f = solutions.prob20
+        f = solutions.prob45
         number = 5
         answer = 3
         return
@@ -335,7 +335,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob46(self):
-        f = solutions.prob20
+        f = solutions.prob46
         number = 5
         answer = 3
         return
@@ -343,7 +343,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob47(self):
-        f = solutions.prob20
+        f = solutions.prob47
         number = 5
         answer = 3
         return
@@ -351,7 +351,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob48(self):
-        f = solutions.prob20
+        f = solutions.prob48
         number = 5
         answer = 3
         return
@@ -359,7 +359,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob49(self):
-        f = solutions.prob20
+        f = solutions.prob49
         number = 5
         answer = 3
         return

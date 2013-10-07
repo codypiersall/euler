@@ -278,105 +278,105 @@ def doprob35():
 
 def doprob36():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob36(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob37():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob37(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob38():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob38(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob39():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob39(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob40():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob40(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob41():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob41(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob42():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob42(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob43():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob43(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob44():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob44(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob45():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob45(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob46():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob46(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob47():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob47(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob48():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob48(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob49():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob49(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
 
 def doprob50():
     maxnum = 20
-    answer = s.prob5(maxnum)
+    answer = s.prob50(maxnum)
     
     answer_text = ''
     print(answer_text.format(maxnum, answer))
