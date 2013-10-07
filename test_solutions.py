@@ -221,12 +221,15 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(coins, to_make))
         
     def test_prob32(self):
-        f = solutions.prob20
-        number = 5
-        answer = 3
+        #TODO: Make test for prob32
+        f = solutions.prob32
+        low = 1
+        high = 3
+        answer = 0
+        
         return
         
-        self.assertEqual(answer, f(number))
+        self.assertEqual(answer, f(low, high))
         
     def test_prob33(self):
         f = solutions.prob20

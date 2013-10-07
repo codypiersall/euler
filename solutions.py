@@ -819,7 +819,7 @@ def prob32(low=1, high=9):
         for num1, num2, num3 in yield_permutations(p):
             if num1 * num2 == num3: products.add(num3)
     
-    print(sum(products))
+    return products
     
 def prob33():
     '''

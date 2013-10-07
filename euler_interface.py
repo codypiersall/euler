@@ -242,11 +242,13 @@ def doprob31():
     print(answer_text.format(answer, to_make, coins))
 
 def doprob32():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    low = 1
+    high = 9
+    products = s.prob32(low, high)
+    answer = sum(products)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The sum of all products whose multiplicand/multiplier/product can be written as {}-{} pandigital is {}'
+    print(answer_text.format(low, high, answer))
 
 def doprob33():
     maxnum = 20
@@ -377,4 +379,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob31()
+    doprob32()
