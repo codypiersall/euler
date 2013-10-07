@@ -331,11 +331,11 @@ def doprob42():
     print(answer_text.format(answer, file))
 
 def doprob43():
-    maxnum = 20
-    answer = s.prob43(maxnum)
+    numbers = s.prob43()
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The numbers with the property in prob43: {}\n'
+    answer_text += 'Their sum is {}'
+    print(answer_text.format(numbers, sum(numbers)))
 
 def doprob44():
     maxnum = 20
@@ -389,4 +389,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob42()
+    doprob43()

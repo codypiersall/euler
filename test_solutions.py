@@ -307,6 +307,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(answer, f(number))
         
     def test_prob43(self):
+        #TODO: Make test for problem 43
         f = solutions.prob43
         number = 5
         answer = 3
