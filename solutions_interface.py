@@ -269,11 +269,12 @@ def doprob34():
     print(answer_text.format(answer[0], answer[1]))
 
 def doprob35():
-    maxnum = 20
-    answer = s.prob5(maxnum)
+    maxnum = 1000000
+    answer = s.prob35(maxnum)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'Circular primes below {0}: {1}\n'
+    answer_text += 'There are {2} circular primes below {0}.'
+    print(answer_text.format(maxnum, sorted(answer), len(answer)))
 
 def doprob36():
     maxnum = 20
@@ -383,4 +384,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob34()
+    doprob35()

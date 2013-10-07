@@ -893,24 +893,16 @@ def prob35(maxnum=1000000):
     How many circular primes are there below one million?
     '''
     
-    primes_file = shelve.open('primes_less_than1000000')
-    primes = primes_file["primes_less_than1000000"]
-    primes_file.close()
-    
+    primes = set(euler.primesfrom2to(maxnum))
     circular_primes = set()
-    
     for number in range(maxnum):
-        
         if number in primes:
             rotations = euler.circularize(number)
-            
             if all((i in primes) for i in rotations):
-    
                 for rotation in rotations:
                     circular_primes.add(rotation)
             
-    print(circular_primes)
-    print('the answer is {0}'.format(len(circular_primes)))
+    return circular_primes
     
 def prob36(maxnum):
     '''
