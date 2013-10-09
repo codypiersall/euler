@@ -1193,14 +1193,16 @@ def prob45(n):
     It can be verified that T285 = P165 = H143 = 40755.
     
     Find the next triangle number that is also pentagonal and hexagonal.
+    
+    Returns the nth number that is triangular, pentagonal, and hexagonal.
     """
     
     num_found = 0
-    common_number=0
-    
-    triangle_nums = set(euler.generate_triangular_numbers(1, 100000))
-    pentagonal_nums = set(euler.generate_pentagonal_numbers(1, 100000))
-    hexagonal_nums = list(euler.generate_hexagonal_numbers(1, 100000))
+    common_number = 0
+    max_num = 10 ** (n * 2)
+    triangle_nums = set(euler.generate_triangular_numbers(1, max_num))
+    pentagonal_nums = set(euler.generate_pentagonal_numbers(1, max_num))
+    hexagonal_nums = list(euler.generate_hexagonal_numbers(1, max_num))
     
     for num in hexagonal_nums:
         if num in triangle_nums and num in pentagonal_nums:
@@ -1209,7 +1211,7 @@ def prob45(n):
                 common_number = num
                 break
     
-    print('The {}th common number is {}'.format(n, common_number))
+    return common_number
         
 
 def prob46():

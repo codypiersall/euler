@@ -348,11 +348,11 @@ def doprob44():
     print(answer_text.format(maxnum, pent1, pent2, pent2 - pent1))
 
 def doprob45():
-    maxnum = 20
-    answer = s.prob45(maxnum)
+    n = 3
+    answer = s.prob45(n)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The {}rd common triangle, pentagonal, and hexagonal number is {}'
+    print(answer_text.format(n, answer))
 
 def doprob46():
     maxnum = 20
@@ -392,4 +392,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob44()
+    doprob45()
