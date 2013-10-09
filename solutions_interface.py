@@ -355,11 +355,12 @@ def doprob45():
     print(answer_text.format(n, answer))
 
 def doprob46():
-    maxnum = 20
-    answer = s.prob46(maxnum)
+    n = 1
+    answer = s.prob46(n)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The {} odd composite number that cannot be written as '
+    answer_text += 'the sum of a prime and twice a square is {}'
+    print(answer_text.format(n, answer))
 
 def doprob47():
     maxnum = 20
@@ -392,4 +393,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob45()
+    doprob46()

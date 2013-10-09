@@ -1214,7 +1214,7 @@ def prob45(n):
     return common_number
         
 
-def prob46():
+def prob46(n):
     """
     It was proposed by Christian Goldbach that every odd composite number can be 
     written as the sum of a prime and twice a square.
@@ -1247,7 +1247,7 @@ def prob46():
         passes_test = goldbachs_test(odd_number, some_primes)
         if not passes_test:
             break
-    print(odd_number)
+    return odd_number
 
 def prob47(n):
     """
