@@ -338,11 +338,14 @@ def doprob43():
     print(answer_text.format(numbers, sum(numbers)))
 
 def doprob44():
-    maxnum = 20
-    answer = s.prob44(maxnum)
+    minnum = 1
+    maxnum = 10000
+    pent1, pent2 = s.prob44(minnum, maxnum)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The pair of pentagonal numbers for which their sum and difference are pentagonal' 
+    answer_text += 'and their difference is minimized is {} and {}. Their difference is {}'
+    
+    print(answer_text.format(maxnum, pent1, pent2, pent2 - pent1))
 
 def doprob45():
     maxnum = 20
@@ -389,4 +392,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob43()
+    doprob44()
