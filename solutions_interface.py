@@ -370,11 +370,12 @@ def doprob47():
     print(answer_text.format(n, answer))
 
 def doprob48():
-    maxnum = 20
-    answer = s.prob48(maxnum)
+    n = 1000
+    x = 10
+    answer = s.prob48(n,x)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The last {0} digits of {1}**{1} are "{2}"'
+    print(answer_text.format(x, n, answer))
 
 def doprob49():
     maxnum = 20
@@ -393,4 +394,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob47()
+    doprob48()

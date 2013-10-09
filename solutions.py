@@ -1303,7 +1303,7 @@ def prob48(n, x):
     
     """
     
-    print(str(sum(i**i for i in range(1, n+1)))[-x:])
+    return str(sum(i**i for i in range(1, n+1)))[-x:]
     
 def prob49():
     """
