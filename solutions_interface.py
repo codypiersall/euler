@@ -378,11 +378,11 @@ def doprob48():
     print(answer_text.format(x, n, answer))
 
 def doprob49():
-    maxnum = 20
-    answer = s.prob49(maxnum)
+    #TODO: Write interface for prob49
+    answer = s.prob49()
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The answer to prob49 is {}'
+    print(answer_text.format(answer))
 
 def doprob50():
     maxnum = 20

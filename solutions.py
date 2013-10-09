@@ -1325,6 +1325,7 @@ def prob49():
     primes = list(filter(lambda x: x >1000, primes))
     primeset = set(primes)
     test_numbers = generate_test_numbers()
+    
     for prime in primes:
         for number in test_numbers:
             if prime + number in primeset and prime + number + number in primeset:
