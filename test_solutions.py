@@ -366,11 +366,10 @@ class TestSolutions(unittest.TestCase):
         
     def test_prob50(self):
         f = solutions.prob50
-        number = 5
-        answer = 3
-        return
+        n = 100
+        answer = 41
         
-        self.assertEqual(answer, f(number))
+        self.assertEqual(answer, f(n))
         
     
 if __name__ == '__main__':

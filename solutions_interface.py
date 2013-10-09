@@ -385,13 +385,13 @@ def doprob49():
     print(answer_text.format(answer))
 
 def doprob50():
-    maxnum = 20
-    answer = s.prob50(maxnum)
+    n = 10**6
+    answer = s.prob50(n)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The prime below {} that can be written as the sum of the most consecutive primes is {}'
+    print(answer_text.format(n, answer))
 
 
 if __name__ == '__main__':
     
-    doprob48()
+    doprob50()

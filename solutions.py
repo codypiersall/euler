@@ -1363,13 +1363,11 @@ def prob50(n):
             candidate = sum(primes[index1:index2])
             if candidate in primeset:
                 most_consecutive = index2 - index1
-                print(candidate)
                 answer = candidate
                 
             index2 += 1
     
-    print('The answer is definitely {}'.format(answer))
-            
+    return answer
 
 def prob51():
     """
