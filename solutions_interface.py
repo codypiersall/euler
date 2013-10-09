@@ -363,11 +363,11 @@ def doprob46():
     print(answer_text.format(n, answer))
 
 def doprob47():
-    maxnum = 20
-    answer = s.prob47(maxnum)
+    n = 4
+    answer = s.prob47(n)
     
-    answer_text = ''
-    print(answer_text.format(maxnum, answer))
+    answer_text = 'The first of {0} consecutive integers to have {0} distinct prime factors is {1}'
+    print(answer_text.format(n, answer))
 
 def doprob48():
     maxnum = 20
@@ -393,4 +393,4 @@ def doprob50():
 
 if __name__ == '__main__':
     
-    doprob46()
+    doprob47()

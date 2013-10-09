@@ -1265,11 +1265,10 @@ def prob47(n):
     Find the first four consecutive integers to have four distinct prime factors. 
     What is the first of these numbers?
     
-    ##
-    Find the first n numbers to have n distinct prime factors
+    
     """
     
-    primes = euler.primesfrom2to(1000000)
+    primes = euler.primesfrom2to(10 ** (2 + n))
     primeset = set(primes)
     
     num_consecutive = 0
@@ -1292,12 +1291,13 @@ def prob47(n):
             num_consecutive += 1
     
     answer = solve()
+    return answer
     print("The answer to prob47 is {}".format(answer))
     
 def prob48(n, x):
     """
     The series, 1**1 + 2**2 + 3**3 + ... + 10**10 = 10405071317.
-    Find the last ten digits of the series, 11 + 22 + 33 + ... + 10001000
+    Find the last ten digits of the series, 1**1 + 2**2 + 3**3 + ... + 1000**1000
     
     Return the last 'x' digits of 1**1 + 2**2 + 3**3 + ... + n**n
     

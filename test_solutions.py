@@ -334,19 +334,18 @@ class TestSolutions(unittest.TestCase):
     def test_prob46(self):
         #TODO: Write a test for prob46
         f = solutions.prob46
-        number = 5
-        answer = 3
+        number = 3
+        answer = 644
         return
         
         self.assertEqual(answer, f(number))
         
     def test_prob47(self):
         f = solutions.prob47
-        number = 5
-        answer = 3
-        return
+        n = 2
+        answer = 14
         
-        self.assertEqual(answer, f(number))
+        self.assertEqual(answer, f(n))
         
     def test_prob48(self):
         f = solutions.prob48
