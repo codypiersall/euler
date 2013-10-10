@@ -46,7 +46,27 @@ def is_prime(n):
     
     return True
 
-
+def get_gcf(m, n):
+    """ Return the greatest common factor of m and n.
+    
+    Algorithm from Structure and Interpretation of Computer Programs.
+    
+    """
+    m, n = max([m,n]), min([m,n])
+            
+    def recurse(a, b):
+        if b == 0:
+            return a
+        else:
+            return recurse(b, a % b)
+    
+    return recurse(m, n)
+    
+def get_lcm(m, n):
+    """ Return the least common multiple of m and n """
+    
+    return (m // get_gcf(m, n)) * n
+    
 def divisible_by_any(n, numbers):
     """for i in range(1,n), return list of numbers divisible by any number in numbers """
     return [i for i in range(1,n) if any(i % a == 0 for a in numbers)]

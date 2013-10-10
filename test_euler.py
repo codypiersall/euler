@@ -41,6 +41,32 @@ class TestEuler(unittest.TestCase):
         self.assertEqual(4, f(34352, 3))
         self.assertEqual(3, f(34352, 4))
         
+    def test_get_gcf(self):
+        f = euler.get_gcf
+        
+        m1, n1 = 3, 15
+        answer1 = 3
+        self.assertEqual(answer1, f(m1, n1))
+        
+        m2, n2 = 17, 23
+        answer2 = 1
+        self.assertEqual(answer2, f(m2, n2))
+        
+        m3, n3 = 30, 105
+        answer3 = 15
+        self.assertEqual(answer3, f(m3, n3))
+    
+    def test_get_lcm(self):
+        f = euler.get_lcm
+        
+        m1, n1 = 4,6
+        lcm = 12
+        self.assertEqual(lcm, f(m1, n1))
+        
+        m2, n2 = 72, 36
+        lcm2 = 72
+        self.assertEqual(lcm2, f(m2, n2))
+    
     def test_get_prime_factors3(self):
         f = euler.get_prime_factors3
         primes = euler.primesfrom2to(1000)
