@@ -61,6 +61,28 @@ def get_gcf(m, n):
             return recurse(b, a % b)
     
     return recurse(m, n)
+
+def locations_of_substring(string, substring):
+    """Return a list of locations of a substring."""
+    
+    substring_length = len(substring)    
+    def recurse(found_so_far, start):
+        location = string.find(substring, start)
+        if location != -1:
+            return recurse(found_so_far + [location], location+substring_length)
+        else:
+            return found_so_far
+
+    return recurse([], 0)
+
+def replace_for_prime(number, prime):
+    """
+    For a number of the form 43***2* where a * represents a digit,
+    return a list of prime numbers that can be formed by replacing * with numbers.
+    """
+    num_digits_missing = number.count('*')
+    #locations = 
+    
     
 def get_lcm(m, n):
     """ Return the least common multiple of m and n """

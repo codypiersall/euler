@@ -94,6 +94,18 @@ class TestEuler(unittest.TestCase):
         self.assertFalse(p(10))
         self.assertFalse(p(10000))
         
+    def test_locations_of_substring(self):
+        f = euler.locations_of_substring
+        string = 'this is a test for this and this'
+
+        sub1 = 't'
+        answer1 = [0, 10, 13, 19, 28]
+        self.assertEqual(f(string, sub1), answer1)
+        
+        sub2 = 'this'
+        answer2 = [0, 19, 28]
+        self.assertEqual(f(string,sub2), answer2)
+        
     def test_num_digits(self):
         self.assertEqual(euler.get_num_digits(100), 3)
         self.assertEqual(euler.get_num_digits(999), 3)
