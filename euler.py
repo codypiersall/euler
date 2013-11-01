@@ -75,15 +75,21 @@ def locations_of_substring(string, substring):
 
     return recurse([], 0)
 
-def replace_for_prime(number, prime):
+def replace_digits(number):
     """
     For a number of the form 43***2* where a * represents a digit,
     return a list of prime numbers that can be formed by replacing * with numbers.
     """
-    num_digits_missing = number.count('*')
-    #locations = 
     
-    
+    num_stars = number.count('*')
+    first_star = number.find('*')
+    if num_stars == 1:
+        for num in range(10):
+            yield int(number[:first_star] + str(num) + number[first_star+1:])
+    else:
+        for num in range(10):
+            yield from replace_digits(number[:first_star] + str(num) + number[first_star+1:])
+            
 def get_lcm(m, n):
     """ Return the least common multiple of m and n """
     
