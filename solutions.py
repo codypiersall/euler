@@ -1369,7 +1369,7 @@ def prob50(n):
     
     return answer
 
-def prob51():
+def prob51(goal):
     """
     By replacing the 1st digit of the 2-digit number *3, it turns out that six 
     of the nine possible values: 13, 23, 43, 53, 73, and 83, are all prime.
@@ -1385,6 +1385,19 @@ def prob51():
     prime value family.
         
     """
+    
+    done = {}
+    primes = set(euler.primesfrom2to(1000000))
+    for i in itertools.count(10):
+        for replaced_with_star in euler.replace_with_stars(i):
+            if replaced_with_star in done:
+                continue
+            else:
+                count = sum(1 for number in euler.replace_digits_with_single_number(replaced_with_star) 
+                            if number in primes)
+                if count == goal:
+                    return replaced_with_star
+                    
     
 def prob52():
     """

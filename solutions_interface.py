@@ -391,7 +391,11 @@ def doprob50():
     answer_text = 'The prime below {} that can be written as the sum of the most consecutive primes is {}'
     print(answer_text.format(n, answer))
 
-
+def doprob51():
+    n = 8
+    answer = s.prob51(n)
+    
+    answer_text = 'The first number that'
 if __name__ == '__main__':
     
     doprob50()

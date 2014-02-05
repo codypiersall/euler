@@ -130,6 +130,14 @@ class TestEuler(unittest.TestCase):
         self.assertFalse(f1([112, 345, 678]))
         self.assertTrue(f1([987654321]))
         
+    def test_replace_digits_with_single_number(self):
+        f1 = euler.replace_digits_with_single_number
+        answer1 = list(f1('*4'))
+        self.assertEqual(answer1, [4,14,24,34,44,54,64,74,84,94])
+        self.assertEqual(list(f1('*')), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+        
+        self.assertEqual(list(f1('1*1*')), [1010, 1111, 1212, 1313, 1414, 1515, 1616, 1717, 1818, 1919])
+        
     def test_primesfrom2to(self):
         f = euler.primesfrom2to
         primes = [2,3,5,7,11,13,17,19]

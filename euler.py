@@ -1,6 +1,7 @@
 """
 Solutions to problems on Project Euler
 """
+
 __author__ = 'Cody Piersall'
 
 import copy
@@ -78,7 +79,8 @@ def locations_of_substring(string, substring):
 def replace_digits(number):
     """
     For a number of the form 43***2* where a * represents a digit,
-    return a list of prime numbers that can be formed by replacing * with numbers.
+    yield every number that can be formed by replacing * with numbers.
+    
     """
     
     num_stars = number.count('*')
@@ -89,6 +91,16 @@ def replace_digits(number):
     else:
         for num in range(10):
             yield from replace_digits(number[:first_star] + str(num) + number[first_star+1:])
+
+def replace_digits_with_single_number(number_with_blanks, replace_char='*'):
+    """ 
+    Given a number of the for 43***2* where * represents a digit,
+    yield every number that can be formed by replacing * with a single number.
+    
+    """
+    
+    for i in range(10):
+        yield int(number_with_blanks.replace(replace_char, str(i)))
             
 def get_lcm(m, n):
     """ Return the least common multiple of m and n """

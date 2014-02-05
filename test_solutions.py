@@ -371,6 +371,10 @@ class TestSolutions(unittest.TestCase):
         
         self.assertEqual(answer, f(n))
         
+    def test_prob51(self):
+        f = solutions.prob51
+        n = 6
+        answer = 13
     
 if __name__ == '__main__':
     unittest.main()
